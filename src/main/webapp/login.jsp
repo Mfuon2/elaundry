@@ -20,7 +20,7 @@
    
 </div>
 
-<div class="container">
+<div id="register-ajax-content" class="container">
 	
     <section class="tabblue">
 		<ul class="tabs blue">
@@ -49,7 +49,7 @@
                 <div id="Error"></div>
 
 				<div class="btn">
-						<input type="submit" onclick="user.save()" value="Register" />
+						<input type="submit"  value="Register" />
 						
 						<div id="register-ajax-content" class="well col-sm-6 col-sm-offset-3"style="background-color: #FFF; border: 0px"></div>
 				</div>
