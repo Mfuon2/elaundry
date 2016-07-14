@@ -1,60 +1,78 @@
 package elaundry.user.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@NamedQueries({ 
+			@NamedQuery(
+					name = User.NQ_ALL, 
+					query = "FROM User u"
+			
+			), 
+			@NamedQuery(
+					name = User.NQ_FINDBYID, 
+					query = "FROM User u WHERE u.id =:id"
+			) 
+		})
 @Entity
 @Table(name = "users")
-public class User {
+@XmlRootElement
+@JsonInclude(Include.NON_EMPTY)
+public class User implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Transient
+	public static final String NQ_ALL = "User.All";
+	
+	@Transient
+	public static final String NQ_FINDBYID = "User.findById";
+
 	@Id@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(name = "fname")
-	private String fname;
+	@Column(name = "fullname")
+	private String fullname;
 	
-	@Column(name = "lname")
-	private String lname;
+	@Column(name = "username")
+	private String username;
 	
-	@Column(name = "nationalId")
-	private Long nationalId;
+	@Column(name = "email")
+	private String email;
 	
 	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "usertype")
-	private String usertype;
-	
-	@Column(name = "phone")
-	private Long phone;
-	
-	public Long getId() {
-		return id;
+	public String getFullname() {
+		return fullname;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
 	}
-	public String getFname() {
-		return fname;
+	public String getUsername() {
+		return username;
 	}
-	public void setFname(String fname) {
-		this.fname = fname;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public String getLname() {
-		return lname;
+	public String getEmail() {
+		return email;
 	}
-	public void setLname(String lname) {
-		this.lname = lname;
-	}
-	public Long getNationalId() {
-		return nationalId;
-	}
-	public void setNationalId(Long nationalId) {
-		this.nationalId = nationalId;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getPassword() {
 		return password;
@@ -62,16 +80,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getUsertype() {
-		return usertype;
-	}
-	public void setUsertype(String usertype) {
-		this.usertype = usertype;
-	}
-	public Long getPhone() {
-		return phone;
-	}
-	public void setPhone(Long phone) {
-		this.phone = phone;
-	}
+	
 }

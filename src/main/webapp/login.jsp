@@ -26,11 +26,14 @@
 		<ul class="tabs blue">
           <li>
             <input type="radio" name="tabs blue" id="tab1" checked />
-            <label for="tab1">Register</label>
+            <label for="tab1">Register </label>
             <div id="tab-content1" class="tab-content">
              
-              <form method="post" name="register" action="#">
+              <form method="post" name="register" action="${pageContext.request.contextPath}/user">
               
+                <span class="tabaddon"><i class="fa fa-user fa-2x"></i></span>
+                <input class="field" name="fullname" required type="text" placeholder="Full Name" />
+                
                 <span class="tabaddon"><i class="fa fa-user fa-2x"></i></span>
                 <input class="field" name="username" required type="text" placeholder="Username" />
                 
@@ -40,13 +43,17 @@
                 <span class="tabaddon"><i class="fa fa-lock fa-2x"></i></span>
                 <input id="pass" class="field" name="password" onkeyup="validate()" required type="password" placeholder="Password"/>
                 <div id="Error"></div>
-                <span class="tabaddon"><i class="fa fa-lock fa-2x"></i></span>
-                <input class="field" name="password-confirm" required type="password" placeholder="Confirm Password"/>
-               
-                <div class="btn">
-                  <input type="submit" value="Register"/>
-                </div>
-              </form>
+                
+                 <span class="tabaddon"><i class="fa fa-lock fa-2x"></i></span>
+                <input id="pass" class="field" name="confirmpassword" onkeyup="validate()" required type="password" placeholder="Confirm Password"/>
+                <div id="Error"></div>
+
+				<div class="btn">
+						<input type="submit" onclick="user.save()" value="Register" />
+						
+						<div id="register-ajax-content" class="well col-sm-6 col-sm-offset-3"style="background-color: #FFF; border: 0px"></div>
+				</div>
+		</form>
             </div>
           </li>
           <!-- Login -->
@@ -71,38 +78,9 @@
               </form>
             </div>
           </li>
-          	
-          <li>
-            <input type="radio" name="tabs blue" id="tab3" checked />
-            <label for="tab3">Reset Password</label>
-            <div id="tab-content3" class="tab-content">
-              <form method="post" name="register" action="#">
-                <span class="tabaddon"><i class="fa fa-user fa-2x"></i></span>
-                <input class="field" type="text" placeholder="myusername" />
-                <h4>OR</h4>
-                <span class="tabaddon"><i class="fa fa-envelope fa-2x"></i></span>
-                <input class="field" type="email" placeholder="myusername@gmail.com"/>
-                <div class="btn">
-                  <input type="submit" value="Get New One !"/>
-                </div>
-              </form>
-            </div>
-          </li>
-          
-          
-          
-        
 	</ul>
 	</section>
-    
-    
-    
-    
 </div>
-
-<footer>
-</footer>
-
 <script type="text/javascript">
 function validate(){
 	var input = document.getElementById("pass").value;
