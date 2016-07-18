@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,20 +36,20 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException{
 		
 		User user = new User();
-		user.setFullname(request.getParameter("username"));
-		user.setUsername(request.getParameter("fullname"));
+		user.setFullname(request.getParameter("fullname"));
+		user.setUsername(request.getParameter("username"));
 		user.setEmail(request.getParameter("email"));
 		user.setPassword(request.getParameter("password"));
 		//user.setPhone(Long.parseLong(request.getParameter("phonenumber")));
 		//user.setUsertype(request.getParameter("usertype"));
 		
 		PrintWriter writer = response.getWriter();
-		
+		RequestDispatcher rq = request.getRequestDispatcher("login.jsp");
 		try {
 			
 			userBean.create(user);
 			
-			writer.println("<pre>Register Success<pre>");
+			//writer.println("<pre>Register Success<pre>");
 			
 		} catch (Exception e) {
 			

@@ -13,8 +13,8 @@ public class UserDao extends GenericDao <User, Long> implements UserDaoI{
 	public Boolean login(String username, String password) {
 		
 
-		String hql = "FROM User p WHERE p.user.username=:username "
-				+ "and p.user.password=:pwd";
+		String hql = "FROM User u WHERE u.username=:username "
+				+ "and u.password=:pwd";
 		
 		Query query = em.createQuery(hql)
 				.setParameter("username", username)

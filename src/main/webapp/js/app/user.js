@@ -4,10 +4,11 @@ var user = {
 			var ajax = new XMLHttpRequest();
 			
 
-	    	var fullname = document.getElementById('fullname').value;
+	    	var fullname = document.getElementById("fullname").value;
 	    	var username = document.getElementById('username').value;
 	    	var email = document.getElementById('email').value;
-	    	var password = document.getElementById('password').value;
+	    	var password = document.getElementById("password").value;
+	    	console.log(password);
 	    	var confirmpassword = document.getElementById('confirmpassword').value;
 	    	
 	    	var params = 'fullname=' + encodeURIComponent(fullname) 
@@ -22,16 +23,19 @@ var user = {
 					if(ajax.readyState == 4){
 						if(ajax.status == 200){
 							document.getElementById('register-ajax-content').innerHTML = ajax.responseText;
+							document.getElementById('register-success').innerHTML = "Registration Successful";		
+							document.getElementById('register-success').innerHTML = "Please Login";	
 							
 						}
 					}
 				}
 	    		
-	    		ajax.open("POST", "/user/*", true);
+	    		ajax.open("POST", "./user/*", true);
 	    		ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	    		ajax.send(params);
 	    		
 	    	}else{
+	    		console.log("Password Missmatch");
 	    		document.getElementById('register-ajax-content').innerHTML = "Please enter passwords that match";	    		
 	    	}
 		},
