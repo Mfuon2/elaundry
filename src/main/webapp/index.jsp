@@ -132,6 +132,7 @@
           <ul class="treeview-menu">
             <li><a href="index.html"><i class="fa fa-circle-o"></i>Technicians</a></li>
             <li class="active"><a href="#" onclick="clients.init();clients.formName()"><i class="fa fa-circle-o"></i> Clients</a></li>
+            <li class="active"><a href="#" onclick="technician.init();technician.formName()"><i class="fa fa-circle-o"></i> Technicians</a></li>
           </ul>
         </li>
       </ul>
@@ -175,7 +176,7 @@
             </div>
             
             <div class="box-footer">
-              <div id="ajax-content">
+              <div style="margin-left:2%;margin-right:2%;" id="ajax-content">
               
               </div>
               <!-- /.row -->
@@ -216,9 +217,7 @@
               <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                <p>Will be 23 on April 24th</p>
+               
               </div>
             </a>
           </li>
@@ -227,9 +226,7 @@
               <i class="menu-icon fa fa-user bg-yellow"></i>
 
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                <p>New phone +1(800)555-1234</p>
+                
               </div>
             </a>
           </li>
@@ -238,9 +235,7 @@
               <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
 
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                <p>nora@example.com</p>
+                
               </div>
             </a>
           </li>
@@ -249,9 +244,7 @@
               <i class="menu-icon fa fa-file-code-o bg-green"></i>
 
               <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                <p>Execution time 5 seconds</p>
+                
               </div>
             </a>
           </li>
@@ -394,6 +387,7 @@
 <!-- ./wrapper -->
 <script src="js/app/base.app.js"></script>
     <script src="js/app/clients.js"></script>
+    <script src="js/app/tech.js"></script>
     <script src="js/app/user.js"></script>
     <script src="js/app/location.js"></script>
 

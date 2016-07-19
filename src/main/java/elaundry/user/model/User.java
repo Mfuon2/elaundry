@@ -56,6 +56,15 @@ public class User implements Serializable {
 	@Column(name = "password")
 	private String password;
 	
+	@Column(name = "usertype")
+	private String usertype;
+	
+	public String getUsertype() {
+		return usertype;
+	}
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
+	}
 	public String getFullname() {
 		return fullname;
 	}

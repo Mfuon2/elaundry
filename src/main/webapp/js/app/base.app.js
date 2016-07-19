@@ -272,73 +272,160 @@ App.Sys = {
 			});
 
 		},
+//		listView : function() {
+//			var me = this;
+//
+//			me.ajaxRequest.call({
+//				httpMethod : me.httpMethod,
+//				httpUrl : me.httpUrl,
+//				responseTarget : me.responseTarget,
+//				updateTarget : function(resp) {
+//					var listView = "<div class=\"text-right\">";
+//					listView += "<a class=\"btn btn-success\"  id=\"" + me.modelId + "-create-add-form\">Add</a>";
+//					listView += "</div>";
+//
+//					var jsonRecords = JSON.parse(resp);
+//
+//					jsonRecords.forEach(function(el) {
+//						var editId = me.modelId + "-edit-" + el.id;
+//						var delId = me.modelId + "-del-" + el.id;
+//
+//						listView += "<hr>";
+//						listView += "<div class=\"row\">";
+//						listView += "<div class=\"col-md-12\">";
+//						
+//						
+//						if(me.columnModel)
+//							var columnSeperator = ' ';
+//							if(me.columnSeperator) 
+//								columnSeperator = me.columnSeperator;
+//							
+//							var colSize = me.columnModel.length;
+//							
+//							me.columnModel.forEach(function(elCol){
+//								listView += el[elCol];
+//								
+//								colSize--;
+//								
+//								if(colSize != 0)
+//									listView += columnSeperator;
+//							});
+//						listView += "</div>";
+//						listView += "</div>";
+//						listView += "<div class=\"text-right\">";
+//						listView += "<a class=\"btn btn-primary\"  id=\"" + editId + "\">Edit</a>";
+//						listView += " | <a class=\"btn btn-danger\"  id=\""	+ delId + "\">Delete</a>";
+//						listView += "</div>";
+//					});
+//
+//					if (me.getEl(me.responseTarget).innerHTML = listView) {
+//						jsonRecords.forEach(function(el) {
+//							var editId = me.modelId + "-edit-" + el.id;
+//							var delId = me.modelId + "-del-" + el.id;
+//
+//							me.getEl(editId).addEventListener('click', function() {
+//								me.loadForm(el.id);
+//							});
+//
+//							me.getEl(delId).addEventListener('click', function() {
+//								me.removeRec(el.id);
+//							});
+//						});
+//						
+//						me.getEl(me.modelId + "-create-add-form").addEventListener('click', function() {
+//							me.form();
+//						});
+//					}
+//				}
+//			});
+//		},
 		listView : function() {
-			var me = this;
+            var me = this;
 
-			me.ajaxRequest.call({
-				httpMethod : me.httpMethod,
-				httpUrl : me.httpUrl,
-				responseTarget : me.responseTarget,
-				updateTarget : function(resp) {
-					var listView = "<div class=\"text-right\">";
-					listView += "<a class=\"btn btn-success\"  id=\"" + me.modelId + "-create-add-form\">Add</a>";
-					listView += "</div>";
-
-					var jsonRecords = JSON.parse(resp);
-
-					jsonRecords.forEach(function(el) {
-						var editId = me.modelId + "-edit-" + el.id;
-						var delId = me.modelId + "-del-" + el.id;
-
-						listView += "<hr>";
-						listView += "<div class=\"row\">";
-						listView += "<div class=\"col-md-12\">";
-						
-						
-						if(me.columnModel)
-							var columnSeperator = ' ';
-							if(me.columnSeperator) 
-								columnSeperator = me.columnSeperator;
-							
-							var colSize = me.columnModel.length;
-							
-							me.columnModel.forEach(function(elCol){
-								listView += el[elCol];
-								
-								colSize--;
-								
-								if(colSize != 0)
-									listView += columnSeperator;
-							});
-						listView += "</div>";
-						listView += "</div>";
-						listView += "<div class=\"text-right\">";
-						listView += "<a class=\"btn btn-primary\"  id=\"" + editId + "\">Edit</a>";
-						listView += " | <a class=\"btn btn-danger\"  id=\""	+ delId + "\">Delete</a>";
-						listView += "</div>";
-					});
-
-					if (me.getEl(me.responseTarget).innerHTML = listView) {
-						jsonRecords.forEach(function(el) {
-							var editId = me.modelId + "-edit-" + el.id;
-							var delId = me.modelId + "-del-" + el.id;
-
-							me.getEl(editId).addEventListener('click', function() {
-								me.loadForm(el.id);
-							});
-
-							me.getEl(delId).addEventListener('click', function() {
-								me.removeRec(el.id);
-							});
-						});
-						
-						me.getEl(me.modelId + "-create-add-form").addEventListener('click', function() {
-							me.form();
-						});
-					}
-				}
-			});
-		},
+            me.ajaxRequest.call({
+                httpMethod : me.httpMethod,
+                httpUrl : me.httpUrl,
+                responseTarget : me.responseTarget,
+                updateTarget : function(resp) {
+                var table = '<table class= "table table-bordered table-striped table-condensed">'
+                table += "<tr>";
+                me.model.forEach(function (el){
+                    table += '<th>' +el.label+ '';
+                   
+                });
+                table+="</th>";
+                table+="<th></th>";
+                table+="<th></th></tr>";
+                
+                    var jsonRecords = JSON.parse(resp);
+                    
+                    jsonRecords.forEach(function(el) {
+                    	
+                        var approve = "approve-"+el.id;
+                        var disapprove ="disapprove-"+el.id;
+                        var del ="del-" + el.id;
+                        var edit="edit-" + el.id;
+                        
+                        table+='<tr>';
+                        
+                        me.model.forEach(function (model){
+                        	table += '<td>'  +el[model.name] + '</td>' 	  
+                        });
+                        
+                        if (me.modelId == "Open"){
+                        table += "<td><a class = \"btn btn-primary\" id=\""+ Open +"\">Open</a></td>";
+                        table += "<td> <a class=\"btn btn-danger\"  id=\""+ Closed + "\">Closed</a></td>";
+                        table += '</tr>';
+                        }
+                        
+                        else if (me.modelId == "technician" || me.modelId == "clients"){
+                            table += "<td> <a class=\"btn btn-primary\"  id=\"" + edit + "\">Edit</a></td>";;
+                            table += "<td> <a class=\"btn btn-danger\"  id=\""+ del + "\">Delete</a></td>";
+                            table += '</tr>';
+                        }
+                       
+               
+                });
+                    table+="<table>";
+               
+                    me.getEl(me.responseTarget).innerHTML = table;
+                   
+                    if (me.getEl(me.responseTarget).innerHTML = table) {
+                       
+                        jsonRecords.forEach(function(el) {
+       
+                            var approve = "approve-"+el.id;
+                            var disapprove ="disapprove-"+el.id;
+                            var del ="del-" + el.id;
+                            var edit="edit-" + el.id;
+                           
+                             if (me.modelId == "technician" || me.modelId == "clients"){
+                            me.getEl(del).addEventListener('click', function() {
+                            	me.removeRec(el.id);
+                            });
+                           
+                            me.getEl(edit).addEventListener('click', function() {
+                                me.loadForm(el.id);
+                            });
+                            
+                            }
+                             
+                             else if (me.modelId == "Open"){
+                                 
+                            me.getEl(approve).addEventListener('click', function() {
+                                me.approve(el.id);
+                            });
+                           
+                            me.getEl(disapprove).addEventListener('click', function() {
+                                me.disapprove(el.id);
+                            });
+                           
+                        }
+                        });
+                }
+                }
+            });
+        },
 		init : function() {
 			this.listView(this.httpUrl);
 		},

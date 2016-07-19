@@ -1,23 +1,17 @@
-var clients = App.extend(App.Sys, {
-	modelId: 'clients',
-	httpUrl: './clients',
+var technician = App.extend(App.Sys, {
+	modelId: 'technician',
+	httpUrl: './technician',
 	responseTarget: 'ajax-content',
-	columnModel: ['fullname','clientsid', 'nationalid','phonNo','email'],
+	columnModel: ['fullname','techid', 'nationalid','phonNo','email'],
 	columnSeperator: '   -   ',
 	model:[{
-		id: 'client-id',
-		label: '',
-		name: 'id',
-		hidden: true,
-		type: 'hidden'
-	},{
 		id: 'fullname',
 		label: 'Full Name',
 		name: 'fullname',
 		type: 'text',
 		required: 'required'
 	},{
-		id: 'clientid',
+		id: 'techid',
 		label: 'Client ID',
 		name: 'clientid',
 		type: 'text',
@@ -29,25 +23,25 @@ var clients = App.extend(App.Sys, {
 		type: 'number',
 		required: 'required'
 	},{
-		id: 'client-phone',
+		id: 'tech-phone',
 		label: 'Phone :',
 		name: 'phoneNo',
 		type: 'number',
 		required: 'required'
 	},{
-		id: 'client-email',
+		id: 'tech-email',
 		label: 'Email :',
 		name: 'email',
 		type: 'email',
 		required: 'required'
 	},{
-		id: 'client-town',
+		id: 'tech-town',
 		label: 'Town',
 		name: 'town',
 		type: 'text',
 		required: 'required'
 	},{
-		id: 'client-country',
+		id: 'tech-country',
 		label: 'Country',
 		name: 'country',
 		type: 'select',
@@ -57,16 +51,23 @@ var clients = App.extend(App.Sys, {
 	        {label: 'Tanzania', value:'TZ'}
 	     ]
 	},{
-		id: 'client-box',
+		id: 'tech-box',
 		label: 'P.O BOX',
 		name: 'box',
 		type: 'text',
 		required: 'required'
+	},{
+		id: 'tech-id',
+		label: '',
+		name: 'id',
+		hidden: true,
+		type: 'hidden'
 	}],
 	removeRecord: true
 
 });
 
 (function(){
-	//clients.init();
+	//technician.init();
+	//window.location.assign("inde.jsp")
 })();
