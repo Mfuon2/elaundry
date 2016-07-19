@@ -41,22 +41,6 @@ var clients = App.extend(App.Sys, {
 		type: 'email',
 		required: 'required'
 	},{
-		id: 'client-town',
-		label: 'Town',
-		name: 'town',
-		type: 'text',
-		required: 'required'
-	},{
-		id: 'client-country',
-		label: 'Country',
-		name: 'country',
-		type: 'select',
-		options: [
-		    {label: 'Kenya', value:'KEN'}, 
-	        {label: 'Uganda', value:'UG'}, 
-	        {label: 'Tanzania', value:'TZ'}
-	     ]
-	},{
 		id: 'client-box',
 		label: 'P.O BOX',
 		name: 'box',

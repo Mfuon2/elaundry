@@ -12,8 +12,8 @@ var technician = App.extend(App.Sys, {
 		required: 'required'
 	},{
 		id: 'techid',
-		label: 'Client ID',
-		name: 'clientid',
+		label: 'Tech ID',
+		name: 'techid',
 		type: 'text',
 		required: 'required'
 	},{

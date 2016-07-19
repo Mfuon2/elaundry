@@ -29,7 +29,7 @@ public class ClientsDao extends GenericDao<Clients, Long> implements ClientsDaoI
 		
 		List<Clients> clients = new ArrayList<Clients>();
 		
-		List<Object []> results = session.createSQLQuery("select id, fullname, nationalid from clients")
+		List<Object []> results = session.createSQLQuery("select id, fullname, clientid, nationalid from clients")
 				.list();
 		
 		Clients client;
@@ -37,7 +37,8 @@ public class ClientsDao extends GenericDao<Clients, Long> implements ClientsDaoI
 			client = new Clients();
 			if(result[0] != null)client.setId( ((BigInteger) result[0]).longValue());
 			if(result[1] != null)client.setFullname( (String) result[1]);
-			if(result[2] != null)client.setNationalid( ((BigInteger) result[2]).longValue());
+			if (result[2] != null)client.setClientid( (String) result[2]);
+			if(result[3] != null)client.setNationalid( ((BigInteger) result[3]).longValue());
 			clients.add(client);
 		}
 		

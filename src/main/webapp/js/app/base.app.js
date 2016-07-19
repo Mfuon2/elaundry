@@ -347,16 +347,21 @@ App.Sys = {
                 httpUrl : me.httpUrl,
                 responseTarget : me.responseTarget,
                 updateTarget : function(resp) {
-                var table = '<table class= "table table-bordered table-striped table-condensed">'
-                table += "<tr>";
-                me.model.forEach(function (el){
-                    table += '<th>' +el.label+ '';
-                   
-                });
-                table+="</th>";
-                table+="<th></th>";
-                table+="<th></th></tr>";
-                
+                	
+                	var table = '<table class= "table table-bordered table-striped table-condensed">'
+                	table += "<div class=\"text-right\">";
+					table += "<a class=\"btn btn-success\"  id=\"" + me.modelId + "-create-add-form\">Add</a>";
+					table += "</div>";
+	                table += "<tr>";
+	                
+	                me.model.forEach(function (el){
+	                    table += '<th>' +el.label+ '';
+	                   
+	                });
+	                table+="</th>";
+	                table+="<th></th>";
+	                table+="<th></th></tr>";
+	                
                     var jsonRecords = JSON.parse(resp);
                     
                     jsonRecords.forEach(function(el) {
@@ -418,11 +423,18 @@ App.Sys = {
                            
                             me.getEl(disapprove).addEventListener('click', function() {
                                 me.disapprove(el.id);
+                                
                             });
-                           
-                        }
+                            
+                             }
+                             
                         });
-                }
+                        
+						me.getEl(me.modelId + "-create-add-form").addEventListener('click', function() {
+							me.form();
+						});
+						
+                    }
                 }
             });
         },

@@ -46,8 +46,8 @@ public class TechnicianAction extends HttpServlet {
 				&& !request.getParameter("id").equals("undefined"))
 			tech.setId(Long.parseLong(request.getParameter("id")));
 		
-		tech.setFullname(request.getParameter("fullname"));
-		tech.setTechid(request.getParameter("techid"));
+		tech.setFullname(request.getParameter("fullname").toUpperCase());
+		tech.setTechid(request.getParameter("techid").toUpperCase());
 		tech.setNationalid(Long.parseLong(request.getParameter("nationalid")));
 		
 		tech.setAddress(new Address());
@@ -55,7 +55,7 @@ public class TechnicianAction extends HttpServlet {
 		tech.getAddress().setEmail(request.getParameter("email"));
 		tech.getAddress().setTown(request.getParameter("town"));
 		tech.getAddress().setCountry(request.getParameter("country"));
-		tech.getAddress().setBox(request.getParameter("box"));
+		tech.getAddress().setBox(request.getParameter("box").toUpperCase());
 		
 		technicianBean.add(tech);
 		

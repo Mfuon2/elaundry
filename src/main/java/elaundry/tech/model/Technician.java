@@ -81,7 +81,7 @@ public class Technician implements Serializable{
 		sb.append("{")
 			.append("\"id\": \"").append(getId()).append("\",")
 			.append("\"fullname\": \"").append(getFullname()).append("\",")
-			.append("\"clientid\": \"").append(getTechid()).append("\",")
+			.append("\"techid\": \"").append(getTechid()).append("\",")
 			.append("\"nationalid\": \"").append(getNationalid()).append("\"");
 		
 		if(getAddress() != null){
