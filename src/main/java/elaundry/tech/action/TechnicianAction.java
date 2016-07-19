@@ -55,7 +55,7 @@ public class TechnicianAction extends HttpServlet {
 		tech.getAddress().setEmail(request.getParameter("email"));
 		tech.getAddress().setTown(request.getParameter("town"));
 		tech.getAddress().setCountry(request.getParameter("country"));
-		tech.getAddress().setBox(request.getParameter("box").toUpperCase());
+		tech.getAddress().setBox(request.getParameter("box"));
 		
 		technicianBean.add(tech);
 		

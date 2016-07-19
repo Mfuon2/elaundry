@@ -130,7 +130,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="index.html"><i class="fa fa-circle-o"></i>Technicians</a></li>
+             <li class="active"><a href="#" onclick="ticket.init();ticket.formName()"><i class="fa fa-circle-o"></i>Tickets</a></li>
             <li class="active"><a href="#" onclick="clients.init();clients.formName()"><i class="fa fa-circle-o"></i> Clients</a></li>
             <li class="active"><a href="#" onclick="technician.init();technician.formName()"><i class="fa fa-circle-o"></i> Technicians</a></li>
           </ul>
@@ -389,7 +389,7 @@
     <script src="js/app/clients.js"></script>
     <script src="js/app/tech.js"></script>
     <script src="js/app/user.js"></script>
-    <script src="js/app/location.js"></script>
+    <script src="js/app/ticket.js"></script>
 
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>

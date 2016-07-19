@@ -43,8 +43,8 @@ public class ClientsAction extends HttpServlet{
 				&& !request.getParameter("id").equals("undefined"))
 			client.setId(Long.parseLong(request.getParameter("id")));
 		
-		client.setFullname(request.getParameter("fullname"));
-		client.setClientid(request.getParameter("clientid"));
+		client.setFullname(request.getParameter("fullname").toUpperCase());
+		client.setClientid(request.getParameter("clientid").toUpperCase());
 		client.setNationalid(Long.parseLong(request.getParameter("nationalid")));
 		
 		client.setAddress(new Address());

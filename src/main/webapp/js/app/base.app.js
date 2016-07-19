@@ -377,9 +377,8 @@ App.Sys = {
                         	table += '<td>'  +el[model.name] + '</td>' 	  
                         });
                         
-                        if (me.modelId == "Open"){
-                        table += "<td><a class = \"btn btn-primary\" id=\""+ Open +"\">Open</a></td>";
-                        table += "<td> <a class=\"btn btn-danger\"  id=\""+ Closed + "\">Closed</a></td>";
+                        if (me.modelId == "ticket"){
+                        table += "<td> <a class=\"btn btn-danger\"  id=\""+ edit + "\">CLOSE TICKET</a></td>";
                         table += '</tr>';
                         }
                         

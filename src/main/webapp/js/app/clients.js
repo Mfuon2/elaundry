@@ -40,12 +40,6 @@ var clients = App.extend(App.Sys, {
 		name: 'email',
 		type: 'email',
 		required: 'required'
-	},{
-		id: 'client-box',
-		label: 'P.O BOX',
-		name: 'box',
-		type: 'text',
-		required: 'required'
 	}],
 	removeRecord: true
 

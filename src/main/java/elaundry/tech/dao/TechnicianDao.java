@@ -20,7 +20,7 @@ public class TechnicianDao extends GenericDao<Technician, Long> implements Techn
 	public List<Technician> active() {
 		Session session = (Session) getEm().getDelegate();
 		
-		List<Technician> tech = session.createCriteria(Clients.class)
+		List<Technician> tech = session.createCriteria(Technician.class)
 				.add(Restrictions.isNotNull("name"))
 				.list();
 		
@@ -33,7 +33,7 @@ public class TechnicianDao extends GenericDao<Technician, Long> implements Techn
 		
 		List<Technician> tech = new ArrayList<Technician>();
 		
-		List<Object []> results = session.createSQLQuery("select id, fullname, techid, nationalid from technician")
+		List<Object []> results = session.createSQLQuery("select id, fullname, techid, nationalid, phone_no, email from technician")
 				.list();
 		
 		Technician techs;
@@ -43,6 +43,7 @@ public class TechnicianDao extends GenericDao<Technician, Long> implements Techn
 			if(result[1] != null)techs.setFullname( (String) result[1]);
 			if(result[2] != null)techs.setTechid( (String) result[2]);
 			if(result[3] != null)techs.setNationalid( ((BigInteger) result[3]).longValue());
+			
 			tech.add(techs);
 		}
 		

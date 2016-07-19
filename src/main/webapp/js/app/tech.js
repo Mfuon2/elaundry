@@ -5,6 +5,12 @@ var technician = App.extend(App.Sys, {
 	columnModel: ['fullname','techid', 'nationalid','phonNo','email'],
 	columnSeperator: '   -   ',
 	model:[{
+		id: 'tech-id',
+		label: '',
+		name: 'id',
+		hidden: true,
+		type: 'hidden'
+	},{
 		id: 'fullname',
 		label: 'Full Name',
 		name: 'fullname',
@@ -34,34 +40,6 @@ var technician = App.extend(App.Sys, {
 		name: 'email',
 		type: 'email',
 		required: 'required'
-	},{
-		id: 'tech-town',
-		label: 'Town',
-		name: 'town',
-		type: 'text',
-		required: 'required'
-	},{
-		id: 'tech-country',
-		label: 'Country',
-		name: 'country',
-		type: 'select',
-		options: [
-		    {label: 'Kenya', value:'KEN'}, 
-	        {label: 'Uganda', value:'UG'}, 
-	        {label: 'Tanzania', value:'TZ'}
-	     ]
-	},{
-		id: 'tech-box',
-		label: 'P.O BOX',
-		name: 'box',
-		type: 'text',
-		required: 'required'
-	},{
-		id: 'tech-id',
-		label: '',
-		name: 'id',
-		hidden: true,
-		type: 'hidden'
 	}],
 	removeRecord: true
 
