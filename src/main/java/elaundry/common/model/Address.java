@@ -16,11 +16,6 @@ public class Address {
 	@Column
 	private String box;
 	
-	@Column
-	private String email;
-	@Column(name = "phone_no")
-	private String phoneNo;
-	
 	@Transient
 	private String fullAddress;
 
@@ -48,21 +43,7 @@ public class Address {
 		this.box = box;
 	}
 
-	public String getEmail() {
-		return email;
-	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPhoneNo() {
-		return phoneNo;
-	}
-
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
-	}
 
 	public String getFullAddress() {
 		return fullAddress;

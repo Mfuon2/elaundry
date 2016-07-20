@@ -2,8 +2,6 @@ package elaundry.tech.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import elaundry.clients.model.Clients;
-import elaundry.common.model.Address;
 import elaundry.tech.bean.TechnicianBeanI;
 import elaundry.tech.model.Technician;
 
@@ -47,15 +43,15 @@ public class TechnicianAction extends HttpServlet {
 			tech.setId(Long.parseLong(request.getParameter("id")));
 		
 		tech.setFullname(request.getParameter("fullname").toUpperCase());
-		tech.setTechid(request.getParameter("techid").toUpperCase());
+		tech.setTechid("TCN - "+ request.getParameter("techid").toUpperCase());
 		tech.setNationalid(Long.parseLong(request.getParameter("nationalid")));
+		tech.setPhoneNo(request.getParameter("phoneNo"));
+		tech.setEmail(request.getParameter("email"));
 		
-		tech.setAddress(new Address());
-		tech.getAddress().setPhoneNo(request.getParameter("phoneNo"));
-		tech.getAddress().setEmail(request.getParameter("email"));
+		/*tech.setAddress(new Address());
 		tech.getAddress().setTown(request.getParameter("town"));
 		tech.getAddress().setCountry(request.getParameter("country"));
-		tech.getAddress().setBox(request.getParameter("box"));
+		tech.getAddress().setBox(request.getParameter("box"));*/
 		
 		technicianBean.add(tech);
 		

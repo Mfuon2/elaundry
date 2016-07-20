@@ -3,7 +3,6 @@ package elaundry.clients.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,11 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.hibernate.annotations.Nationalized;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import elaundry.common.model.Address;
 
 @Entity
 @Table(name = "clients")
@@ -36,9 +31,12 @@ public class Clients implements Serializable {
 	@Column(name = "nationalid")
 	private Long nationalid;
 	
-	@Embedded
-	private Address address;
-
+	@Column(name = "email")
+	private String email;
+	
+	@Column(name = "phone_no")
+	private String phoneNo;
+	
 	public Long getId() {
 		return id;
 	}
@@ -63,6 +61,22 @@ public class Clients implements Serializable {
 		this.clientid = clientid;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
 	public Long getNationalid() {
 		return nationalid;
 	}
@@ -71,13 +85,6 @@ public class Clients implements Serializable {
 		this.nationalid = nationalid;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 	
 	@JsonIgnore
 	public String getJson(){
@@ -86,15 +93,9 @@ public class Clients implements Serializable {
 			.append("\"id\": \"").append(getId()).append("\",")
 			.append("\"fullname\": \"").append(getFullname()).append("\",")
 			.append("\"clientid\": \"").append(getClientid()).append("\",")
-			.append("\"nationalid\": \"").append(getNationalid()).append("\"");
-		
-		if(getAddress() != null){
-			sb.append(",\"phoneNo\": \"").append(getAddress().getPhoneNo()).append("\",")
-			.append("\"email\": \"").append(getAddress().getEmail()).append("\",")
-			.append("\"town\": \"").append(getAddress().getTown()).append("\",")
-			.append("\"country\": \"").append(getAddress().getCountry()).append("\",")
-			.append("\"box\": \"").append(getAddress().getBox()).append("\"");
-		}
+			.append("\"nationalid\": \"").append(getNationalid()).append("\",")
+			.append("\"phoneNo\": \"").append(getPhoneNo()).append("\",")
+			.append("\"email\": \"").append(getEmail()).append("\"");
 			
 		sb.append("}");
 		

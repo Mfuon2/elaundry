@@ -3,7 +3,6 @@ package elaundry.tech.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import elaundry.common.model.Address;
 
 @Entity
 @Table(name = "technician")
@@ -32,8 +29,27 @@ public class Technician implements Serializable{
 	@Column(name = "nationalid")
 	private Long nationalid;
 	
-	@Embedded
-	private Address address;
+	@Column(name = "email")
+	private String email;
+	
+	@Column(name = "phone_no")
+	private String phoneNo;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
 
 	public Long getId() {
 		return id;
@@ -67,13 +83,6 @@ public class Technician implements Serializable{
 		this.nationalid = nationalid;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 	
 	@JsonIgnore
 	public String getJson(){
@@ -82,15 +91,10 @@ public class Technician implements Serializable{
 			.append("\"id\": \"").append(getId()).append("\",")
 			.append("\"fullname\": \"").append(getFullname()).append("\",")
 			.append("\"techid\": \"").append(getTechid()).append("\",")
-			.append("\"nationalid\": \"").append(getNationalid()).append("\"");
+			.append("\"nationalid\": \"").append(getNationalid()).append("\",")
+			.append("\"phoneNo\": \"").append(getPhoneNo()).append("\",")
+			.append("\"email\": \"").append(getEmail()).append("\"");;
 		
-		if(getAddress() != null){
-			sb.append(",\"phoneNo\": \"").append(getAddress().getPhoneNo()).append("\",")
-			.append("\"email\": \"").append(getAddress().getEmail()).append("\",")
-			.append("\"town\": \"").append(getAddress().getTown()).append("\",")
-			.append("\"country\": \"").append(getAddress().getCountry()).append("\",")
-			.append("\"box\": \"").append(getAddress().getBox()).append("\"");
-		}
 			
 		sb.append("}");
 		

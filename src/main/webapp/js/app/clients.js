@@ -32,7 +32,7 @@ var clients = App.extend(App.Sys, {
 		id: 'client-phone',
 		label: 'Phone :',
 		name: 'phoneNo',
-		type: 'number',
+		type: 'text',
 		required: 'required'
 	},{
 		id: 'client-email',

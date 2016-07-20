@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import elaundry.clients.bean.ClientsBeanI;
 import elaundry.clients.model.Clients;
-import elaundry.common.model.Address;
 
 @SuppressWarnings("serial")
 @WebServlet("/clients/*")
@@ -44,15 +43,10 @@ public class ClientsAction extends HttpServlet{
 			client.setId(Long.parseLong(request.getParameter("id")));
 		
 		client.setFullname(request.getParameter("fullname").toUpperCase());
-		client.setClientid(request.getParameter("clientid").toUpperCase());
+		client.setClientid("CLNT - "+ request.getParameter("clientid").toUpperCase());
 		client.setNationalid(Long.parseLong(request.getParameter("nationalid")));
-		
-		client.setAddress(new Address());
-		client.getAddress().setPhoneNo(request.getParameter("phoneNo"));
-		client.getAddress().setEmail(request.getParameter("email"));
-		client.getAddress().setTown(request.getParameter("town"));
-		client.getAddress().setCountry(request.getParameter("country"));
-		client.getAddress().setBox(request.getParameter("box"));
+		client.setPhoneNo(request.getParameter("phoneNo"));
+		client.setEmail(request.getParameter("email"));	
 		
 		clientsBean.add(client);
 		

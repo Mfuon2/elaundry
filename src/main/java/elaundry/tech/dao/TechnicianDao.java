@@ -43,6 +43,8 @@ public class TechnicianDao extends GenericDao<Technician, Long> implements Techn
 			if(result[1] != null)techs.setFullname( (String) result[1]);
 			if(result[2] != null)techs.setTechid( (String) result[2]);
 			if(result[3] != null)techs.setNationalid( ((BigInteger) result[3]).longValue());
+			if(result[4] != null)techs.setPhoneNo( (String) result[4]);
+			if(result[5] != null)techs.setEmail( (String) result[5]);
 			
 			tech.add(techs);
 		}
