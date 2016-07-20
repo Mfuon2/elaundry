@@ -26,7 +26,7 @@ public class Ticket implements Serializable {
 	@Column(name = "reportedby")
 	private String reportedby;
 	
-	@Column(name = "descr")
+	@Column(name = "descr", columnDefinition = "TEXT")
 	private String descr;
 	
 	@Column(name = "status")

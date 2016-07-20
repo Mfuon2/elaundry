@@ -33,7 +33,12 @@ var ticket = App.extend(App.Sys, {
 		id: 'status',
 		label: 'status :',
 		name: 'status',
-		type: 'text',
+		type: 'select',
+		options:[{
+			label :"OPEN", value :"OPEN"
+		},{
+			label :"CLOSED", value :"CLOSED"
+		}],
 		required: 'required'
 	},{
 		id: 'assign',

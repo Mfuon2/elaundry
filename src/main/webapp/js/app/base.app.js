@@ -378,7 +378,7 @@ App.Sys = {
                         });
                         
                         if (me.modelId == "ticket"){
-                        table += "<td> <a class=\"btn btn-danger\"  id=\""+ edit + "\">CLOSE TICKET</a></td>";
+                        table += "<td> <a class=\"btn btn-danger\"  id=\""+ edit + "\">UPDATE TICKET</a></td>";
                         table += '</tr>';
                         }
                         
@@ -414,17 +414,18 @@ App.Sys = {
                             
                             }
                              
-                             else if (me.modelId == "Open"){
+                             else{
                                  
-                            me.getEl(approve).addEventListener('click', function() {
-                                me.approve(el.id);
+                            me.getEl(edit).addEventListener('click', function() {
+                                me.loadForm(el.id);
                             });
                            
-                            me.getEl(disapprove).addEventListener('click', function() {
-                                me.disapprove(el.id);
-                                
-                            });
-                            
+//                            me.getEl(disapprove).addEventListener('click', function() {
+//                                me.disapprove(el.id);
+//                                
+//                            });
+                            me.getEl(me.modelId + "-create-add-form").addEventListener('click', function() {
+    							me.form();});
                              }
                              
                         });
