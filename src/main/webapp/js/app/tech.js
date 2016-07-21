@@ -45,7 +45,7 @@ var technician = App.extend(App.Sys, {
 
 });
 
-(function(){
-	//technician.init();
-	//window.location.assign("inde.jsp")
-})();
+//(function(){
+//	//technician.init();
+//	//window.location.assign("inde.jsp")
+//})();

@@ -247,6 +247,7 @@ App.Sys = {
 				updateTarget : function(resp) {
 					me.form();
 					var result = JSON.parse(resp);
+					console.log(result);
 					me.model.forEach(function(el) {
 						Object.keys(result).forEach(function(k) {
 							if (el.name == k) {

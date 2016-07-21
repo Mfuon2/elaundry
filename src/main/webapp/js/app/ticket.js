@@ -51,10 +51,9 @@ var ticket = App.extend(App.Sys, {
 	removeRecord: true
 
 });
-
-(function(){
-	clients.init();
-})();
+//(function(){
+//	clients.init();
+//})();
 (function(){
 	ticket.ajaxRequest.call({
 		httpMethod : 'GET',
@@ -94,3 +93,7 @@ var ticket = App.extend(App.Sys, {
 		}
 	})
 })();
+
+function clearDiv(){
+	document.getElementById("ajax-content").style.padding = "0px 0px 0px";
+};

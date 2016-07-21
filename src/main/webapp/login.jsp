@@ -13,7 +13,7 @@
 <body>
 
 <header>
-	<h1>  <span style="color:#ffffff">Welcome To T-Ticket</span> <hr></h1>
+	<h1>  <span style="color:#ffffff">Desk~X </span> <hr></h1>
 </header>
 
 <div class="container">
@@ -24,6 +24,28 @@
 	
     <section class="tabblue">
 		<ul  class="tabs blue">
+		 <!-- Login -->
+      	  <li>
+            <input type="radio" name="tabs blue" id="tab2" />
+            <label for="tab2">Login</label>
+            <div id="tab-content2" class="tab-content">
+            
+              <form method="post" name="register" action="${pageContext.request.contextPath}/main">
+              
+                <span class="tabaddon"><i class="fa fa-envelope fa-2x"></i></span>
+                <input class="field" id="username" value="" name="username" required type="text" placeholder="Username"/>
+                
+                <span class="tabaddon"><i class="fa fa-lock fa-2x"></i></span>
+                <input class="field" id="password" value=""  name="password" required type="password" placeholder="Password"/>
+                
+                <div class="btn">
+                  <input type="submit" onclick="" value="Login"/>
+                </div>
+              </form>
+            </div>
+          </li>
+          
+          <!-- registration -->
           <li>
             <input type="radio" name="tabs blue" id="tab1" checked />
             <label for="tab1">Register </label>
@@ -58,28 +80,7 @@
 		</form>
             </div>
           </li>
-          <!-- Login -->
-      	  <li>
-            <input type="radio" name="tabs blue" id="tab2" />
-            <label for="tab2">Login</label>
-            <div id="tab-content2" class="tab-content">
-            
-              <form method="post" name="register" action="${pageContext.request.contextPath}/main">
-              
-                <span class="tabaddon"><i class="fa fa-envelope fa-2x"></i></span>
-                <input class="field" id="username" value="" name="username" required type="text" placeholder="Username"/>
-                
-                <span class="tabaddon"><i class="fa fa-lock fa-2x"></i></span>
-                <input class="field" id="password" value=""  name="password" required type="password" placeholder="Password"/>
-                
-                <div class="btn">
-                  <input type="checkbox" name="terms" required>
-                  <em>Keep me logged in </em>
-                  <input type="submit" onclick="" value="Login"/>
-                </div>
-              </form>
-            </div>
-          </li>
+         
 	</ul>
 	</section>
 </div>

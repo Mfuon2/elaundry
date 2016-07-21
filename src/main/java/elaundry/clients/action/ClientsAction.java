@@ -43,9 +43,9 @@ public class ClientsAction extends HttpServlet{
 			client.setId(Long.parseLong(request.getParameter("id")));
 		
 		client.setFullname(request.getParameter("fullname").toUpperCase());
-		client.setClientid("CLNT - "+ request.getParameter("clientid").toUpperCase());
+		client.setClientid("CLNT-"+ request.getParameter("clientid").toUpperCase());
 		client.setNationalid(Long.parseLong(request.getParameter("nationalid")));
-		client.setPhoneNo(request.getParameter("phoneNo"));
+		client.setPhoneNo("+254 "+ request.getParameter("phoneNo"));
 		client.setEmail(request.getParameter("email"));	
 		
 		clientsBean.add(client);
