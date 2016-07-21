@@ -123,19 +123,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-             <li class="active"><a href="index.jsp"><i class="fa fa-circle-o"></i>Main</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Users</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="#" onclick="clients.init();clients.formName();clearDiv()"><i class="fa fa-circle-o"></i> Clients</a></li>
-            <li class="active"><a href="#" onclick="technician.init();technician.formName();clearDiv()"><i class="fa fa-circle-o"></i> Technicians</a></li>
+             <li class="active"><a href="client.jsp"><i class="fa fa-circle-o"></i>Main</a></li>
           </ul>
         </li>
         <li>
@@ -146,25 +134,7 @@
             <li class="active"><a href="#" onclick="ticket.init();ticket.formName();clearDiv()"><i class="fa fa-circle-o"></i>Tickets</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Examples</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-            <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-            <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-            <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-            <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-            <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
-          </ul>
-        </li>
+        
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -173,15 +143,8 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header"> Welcome ...
-    <%
-    if (request.getSession().getAttribute("user") != null) {
-    	out.println(request.getSession()
-    			.getAttribute("user")
-    			.toString().toUpperCase());
-    	}
-    %>
-    
+    <section class="content-header">
+     
     </section>
 
     <!-- Main content -->

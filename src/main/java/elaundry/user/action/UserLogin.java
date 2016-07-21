@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import elaundry.user.bean.UserBeanI;
 
@@ -21,11 +22,10 @@ public class UserLogin extends HttpServlet {
 	private UserBeanI userBean;
 	
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
-		
+			
 		String username, password;
-		
 		username = request.getParameter("username");
 		password = request.getParameter("password");
 		
@@ -38,9 +38,16 @@ public class UserLogin extends HttpServlet {
 			
 			if(status == true){
 				req.forward(request, response);
+				 HttpSession session = request.getSession();
+		            session.setAttribute("user", username);
+		            session.setAttribute("user", username);
+		            System.out.println("Session set +++++++++++++++++++++++++++++++++++++++++++++");
+		            
 				
 			}else{
+				
 				respons.println("<p> Invalid Login</p>");
+				System.out.println("" +password +"  "+username);
 			
 			}
 			
@@ -49,5 +56,4 @@ public class UserLogin extends HttpServlet {
 			respons.println("<p>An error occured: "+e.getMessage()+"</p>");
 		}
 	}
-
 }
