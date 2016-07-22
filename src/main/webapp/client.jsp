@@ -49,25 +49,22 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          
-          <!-- Notifications: style can be found in dropdown.less -->
-          
+           
           <li class="dropdown user user-menu">
-            
-            <ul class="dropdown-menu">
+          <h4 style="color:white">Welcome 
+           <%
+          if (request.getSession().getAttribute("user") != null) {
+        	  out.println(request.getSession()
+        			  .getAttribute("user")
+        			  .toString());
+    	}%>
+           </h4>
+           <p style="color:lightgreen"><i>Online</i></p>
+    	<ul class="dropdown-menu">
 								<!-- Menu Body -->
 								<li class="user-body">
 									<div class="row">
-										<div class="col-xs-4 text-center">
-											<a href="#">Followers</a>
-										</div>
-										<div class="col-xs-4 text-center">
-											<a href="#">Sales</a>
-										</div>
-										<div class="col-xs-4 text-center">
-											<a href="#">Friends</a>
-										</div>
+							
 									</div> <!-- /.row -->
 								</li>
 
@@ -100,6 +97,15 @@
       <div class="user-panel">
         <div class="pull-left image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+           <h4 style="color:white">Welcome 
+           <%
+          if (request.getSession().getAttribute("user") != null) {
+        	  out.println(request.getSession()
+        			  .getAttribute("user")
+        			  .toString());
+    	}%>
+           </h4>
+           <p style="color:lightgreen"><i>Online</i></p>
         </div>
         <div class="pull-left info">
          
@@ -118,7 +124,7 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">Main</li>
+        <li class="header">Clients Dashboard</li>
         <li class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -149,7 +155,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-     
+ 
     </section>
 
     <!-- Main content -->
@@ -166,7 +172,7 @@
           
             <div class="box-header with-border">
             <h2 style="text-align:center;color:Green">Desk~X Systems Support</h2>
-              <h3 class="box-title" id="formName"></h3>
+              <h3 class="box-title" id="formName"></h3><pre><i>Post Your Issue here and Get help ASAP!!</i></pre>
 			
             </div>
             
@@ -207,43 +213,7 @@
       <!-- Home tab content -->
       <div class="tab-pane" id="control-sidebar-home-tab">
         <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-              <div class="menu-info">
-               
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-user bg-yellow"></i>
-
-              <div class="menu-info">
-                
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-              <div class="menu-info">
-                
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-        <!-- /.control-sidebar-menu -->
+    
 
       </div>
       <!-- /.tab-pane -->

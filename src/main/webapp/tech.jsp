@@ -47,12 +47,16 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          
-          <!-- Notifications: style can be found in dropdown.less -->
-          
-          <li class="dropdown user user-menu">
-            
+        <li class="dropdown user user-menu">
+          <h4 style="color:white">Welcome 
+           <%
+          if (request.getSession().getAttribute("user") != null) {
+        	  out.println(request.getSession()
+        			  .getAttribute("user")
+        			  .toString());
+    	}%>
+           </h4>
+           <p style="color:lightgreen"><i>Online</i></p>
             <ul class="dropdown-menu">
 								<!-- Menu Body -->
 								<li class="user-body">
@@ -96,9 +100,16 @@
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
-        <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-          gfgfgfgfgfg
+        <div class="pull-left image">    
+          <h4 style="color:white">Welcome 
+           <%
+          if (request.getSession().getAttribute("user") != null) {
+        	  out.println(request.getSession()
+        			  .getAttribute("user")
+        			  .toString());
+    	}%>
+           </h4>
+           <p style="color:lightgreen"><i>Online</i></p>
         </div>
         <div class="pull-left info">
          
@@ -117,7 +128,7 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">Technician</li>
+        <li class="header">Technicians</li>
         <li class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -129,35 +140,12 @@
              <li class="active"><a href="index.jsp"><i class="fa fa-circle-o"></i>Main</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Users</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="#" onclick="clients.init();clients.formName();clearDiv()"><i class="fa fa-circle-o"></i> Clients</a></li>
-            <li class="active"><a href="#" onclick="technician.init();technician.formName();clearDiv()"><i class="fa fa-circle-o"></i> Technicians</a></li>
-          </ul>
-        </li>
         <li>
           <a href="pages/mailbox/mailbox.html">
             <i class="fa fa-envelope"></i> <span>Notifications</span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="#" onclick="ticket.init();ticket.formName();clearDiv()"><i class="fa fa-circle-o"></i>Tickets</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Reports</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="" onclick="redirectRest()"><i class="fa fa-circle-o"></i>Pending Tickets</a></li>
+            <li class="active"><a href="#" onclick="ticket.init();ticket.formName();clearDiv()"><i class="fa fa-circle-o"></i>My Notices</a></li>
           </ul>
         </li>
       </ul>
@@ -168,15 +156,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header"> Welcome ...
-    <%
-    if (request.getSession().getAttribute("user") != null) {
-    	out.println(request.getSession()
-    			.getAttribute("user")
-    			.toString().toUpperCase());
-    	}
-    %>
-    
+    <section class="content-header">
     </section>
 
     <!-- Main content -->

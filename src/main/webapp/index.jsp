@@ -52,6 +52,15 @@
           <!-- Notifications: style can be found in dropdown.less -->
           
           <li class="dropdown user user-menu">
+         <h4 style="color:white">Welcome 
+           <%
+          if (request.getSession().getAttribute("user") != null) {
+        	  out.println(request.getSession()
+        			  .getAttribute("user")
+        			  .toString());
+    	}%>
+           </h4>
+           <p style="color:lightgreen"><i>Online</i></p>
             
             <ul class="dropdown-menu">
 								<!-- Menu Body -->
@@ -98,6 +107,15 @@
       <div class="user-panel">
         <div class="pull-left image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <h4 style="color:white">Welcome 
+           <%
+          if (request.getSession().getAttribute("user") != null) {
+        	  out.println(request.getSession()
+        			  .getAttribute("user")
+        			  .toString());
+    	}%>
+           </h4>
+           <p style="color:lightgreen"><i>Online</i></p>
         </div>
         <div class="pull-left info">
          
@@ -167,15 +185,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header"> Welcome ...
-    <%
-    if (request.getSession().getAttribute("user") != null) {
-    	out.println(request.getSession()
-    			.getAttribute("user")
-    			.toString().toUpperCase());
-    	}
-    %>
-    
+    <section class="content-header">
     </section>
 
     <!-- Main content -->
