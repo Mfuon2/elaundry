@@ -32,9 +32,9 @@ public class UserBean implements UserBeanI {
 		userDao.save(user);
 	}
 	
-	public Boolean login(String username, String password){
+	public Boolean login(String username, String password, String usertype){
 		
-		Boolean Authentication = userDao.login(username, password);
+		Boolean Authentication = userDao.login(username, password, usertype);
 		
 		if(Authentication){
 		return true;

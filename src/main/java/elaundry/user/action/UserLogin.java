@@ -25,29 +25,44 @@ public class UserLogin extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 			
-		String username, password;
+		String username, password, usertype;
 		username = request.getParameter("username");
 		password = request.getParameter("password");
+		usertype = request.getParameter("usertype");
 		
 		PrintWriter respons = response.getWriter();
 		Boolean status;
-		RequestDispatcher req = request.getRequestDispatcher("index.jsp");
+		
+		status = userBean.login(username, password, usertype);
+		HttpSession session = request.getSession();
+        session.setAttribute("user", username);
 		
 		try {
-			status = userBean.login(username, password);
-			
 			if(status == true){
-				req.forward(request, response);
-				 HttpSession session = request.getSession();
-		            session.setAttribute("user", username);
-		            session.setAttribute("user", username);
-		            System.out.println("Session set +++++++++++++++++++++++++++++++++++++++++++++");
-		            
+				System.out.println("+++++++++++++++++++++++++++++++++++"+usertype+"+++++++++++++++");
+				
+				if("admin".equals(usertype)){	
+				RequestDispatcher req = request.getRequestDispatcher("index.jsp");
+				req.forward(request, response);  
+				}
+				
+				if("tech".equalsIgnoreCase(usertype)){
+					RequestDispatcher req = request.getRequestDispatcher("tech.jsp");
+					req.forward(request, response);
+					
+					
+				}
+				if("client".equalsIgnoreCase(usertype)){
+					
+					RequestDispatcher req = request.getRequestDispatcher("client.jsp");
+					req.forward(request, response);
+					
+				}
 				
 			}else{
 				
 				respons.println("<p> Invalid Login</p>");
-				System.out.println("" +password +"  "+username);
+				
 			
 			}
 			

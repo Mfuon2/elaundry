@@ -21,8 +21,6 @@
   
   <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
   
-<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
-  
   <style type="text/css">
   			#popup {
 		    display:none;
@@ -100,6 +98,7 @@
       <div class="user-panel">
         <div class="pull-left image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          gfgfgfgfgfg
         </div>
         <div class="pull-left info">
          
@@ -118,7 +117,7 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">Main</li>
+        <li class="header">Technician</li>
         <li class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -127,7 +126,19 @@
             </span>
           </a>
           <ul class="treeview-menu">
-             <li class="active"><a href="client.jsp"><i class="fa fa-circle-o"></i>Main</a></li>
+             <li class="active"><a href="index.jsp"><i class="fa fa-circle-o"></i>Main</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Users</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="#" onclick="clients.init();clients.formName();clearDiv()"><i class="fa fa-circle-o"></i> Clients</a></li>
+            <li class="active"><a href="#" onclick="technician.init();technician.formName();clearDiv()"><i class="fa fa-circle-o"></i> Technicians</a></li>
           </ul>
         </li>
         <li>
@@ -135,11 +146,20 @@
             <i class="fa fa-envelope"></i> <span>Notifications</span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="#" onclick="createPerson();clearDiv()"><i class="fa fa-circle-o"></i>Post Issue</a></li>
-             <li class="active"><a href="#"><i class="fa fa-circle-o"></i>Contact Us</a></li>
+            <li class="active"><a href="#" onclick="ticket.init();ticket.formName();clearDiv()"><i class="fa fa-circle-o"></i>Tickets</a></li>
           </ul>
         </li>
-        
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Reports</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="" onclick="redirectRest()"><i class="fa fa-circle-o"></i>Pending Tickets</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -148,8 +168,15 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-     
+    <section class="content-header"> Welcome ...
+    <%
+    if (request.getSession().getAttribute("user") != null) {
+    	out.println(request.getSession()
+    			.getAttribute("user")
+    			.toString().toUpperCase());
+    	}
+    %>
+    
     </section>
 
     <!-- Main content -->
@@ -328,12 +355,40 @@
 <!-- ./wrapper -->
 	<script src="js/app/base.app.js"></script>
 	<script src="js/app/main.js"></script>
+	<script src="dist/sweetalert.min.js"></script>
+    <script src="js/app/clients.js"></script>
     <script src="js/app/repoticket.js"></script>
-    <script src="dist/sweetalert.min.js"></script>
     <script src="js/app/tech.js"></script>
     <script src="js/app/user.js"></script>
     <script src="js/app/ticket.js"></script>
+    <script type="text/javascript">
     
+    function redirectRest(){
+    	
+    	var newUrl = "restApi.php"//refineUrl();//fetch new url
+
+    	//here you pass whatever you want to appear in the url after the domain /
+    	window.history.pushState("object or string", "Title", "/"+newUrl );
+
+
+    	/*Helper function to extract the URL between the last / and before ? 
+    	  If url is www.example.com/file.php?f_id=55 this function will return file.php 
+    	 pseudo code: edit to match your url settings  
+    	*/ 
+    	function refineUrl()
+    	{
+    	    //get full url
+    	    var url = window.location.href;
+    	    //get url after/  
+    	    var value = url.substring(url.firstIndexOf('local') +1);
+    	    //get the part after before ?
+    	    //value  = value.split("?")[0];   
+    	    return value;     
+    	}
+    	//window.location = "http://localhost/restApi.php";
+    }
+    
+    </script>
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->

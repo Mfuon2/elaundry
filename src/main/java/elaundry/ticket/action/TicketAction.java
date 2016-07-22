@@ -27,6 +27,7 @@ public class TicketAction extends HttpServlet {
 				String [] pathCmp = request.getRequestURI().split("/");
 				String path = pathCmp[pathCmp.length-1];
 				
+				
 				if(path.equalsIgnoreCase("load"))
 					this.load(request, response);
 				else
@@ -47,6 +48,7 @@ public class TicketAction extends HttpServlet {
 		ticket.setDescr(request.getParameter("descr"));
 		ticket.setStatus(request.getParameter("status"));
 		ticket.setAssign(request.getParameter("assign"));
+		ticket.setPriority(request.getParameter("priority"));
 	
 		ticketBean.add(ticket);
 		

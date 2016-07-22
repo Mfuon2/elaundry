@@ -8,7 +8,7 @@ public interface UserBeanI {
 	
 	void create(User user);
 	
-	Boolean login(String username, String password);
+	Boolean login(String username, String password, String usertype);
 	
 	List<User> list();
 

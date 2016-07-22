@@ -68,6 +68,7 @@
             <div id="tab-content2" class="tab-content">
             
               <form method="post" name="register" action="${pageContext.request.contextPath}/main">
+              <%--  --%>
               
                 <span class="tabaddon"><i class="fa fa-envelope fa-2x"></i></span>
                 <input class="field" id="username" value="" name="username" required type="text" placeholder="Username"/>
@@ -76,6 +77,7 @@
                 <input class="field" id="password" value=""  name="password" required type="password" placeholder="Password"/>
                 
                 <div class="btn">
+                <input class="field" id="usertype" value=""  name="usertype" required type="text" placeholder="Usertype"/>
                   <input type="submit" onclick="" value="Login"/>
                 </div>
               </form>

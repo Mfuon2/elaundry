@@ -232,7 +232,21 @@ App.Sys = {
 					requestParams : formValues,
 					responseTarget : me.responseTarget,
 					updateTarget : function(resp) {
-						me.init();
+						swal({
+							  title: "Saving Form",
+							  text: "Please Wait..!",
+							  type: "success",
+							  showCancelButton: true,
+							  closeOnConfirm: false,
+							  showLoaderOnConfirm: true,
+							},
+							function(){
+							  setTimeout(function(){
+							    swal("Saved Successfully!");
+							    me.init();
+							  }, 2000);
+							});
+						
 					}
 				});
 			}
@@ -251,7 +265,7 @@ App.Sys = {
 					me.model.forEach(function(el) {
 						Object.keys(result).forEach(function(k) {
 							if (el.name == k) {
-								console.log(el.id + '=' + result[k]);
+								//console.log(el.id + '=' + result[k]);
 								me.getEl(el.id).value = result[k];
 							}
 						})
@@ -268,6 +282,7 @@ App.Sys = {
 				httpUrl : me.httpUrl + '?id=' + id,
 				responseTarget : me.responseTarget,
 				updateTarget : function(resp) {
+					swal("Deleted", "Successfully Deleted!", "success")
 					me.init();
 				}
 			});
@@ -363,7 +378,9 @@ App.Sys = {
 	                table+="<th></th>";
 	                table+="<th></th></tr>";
 	                
+	                //console.log(resp);
                     var jsonRecords = JSON.parse(resp);
+                    
                     
                     jsonRecords.forEach(function(el) {
                     	

@@ -19,6 +19,8 @@
   <!-- Skin-->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
   
+  <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+  
   <style type="text/css">
   			#popup {
 		    display:none;
@@ -148,21 +150,13 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-folder"></i> <span>Examples</span>
+            <i class="fa fa-folder"></i> <span>Reports</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-            <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-            <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-            <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-            <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-            <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
+            <li><a href="" onclick="redirectRest()"><i class="fa fa-circle-o"></i>Pending Tickets</a></li>
           </ul>
         </li>
       </ul>
@@ -360,11 +354,40 @@
 <!-- ./wrapper -->
 	<script src="js/app/base.app.js"></script>
 	<script src="js/app/main.js"></script>
+	<script src="dist/sweetalert.min.js"></script>
     <script src="js/app/clients.js"></script>
+    <script src="js/app/repoticket.js"></script>
     <script src="js/app/tech.js"></script>
     <script src="js/app/user.js"></script>
     <script src="js/app/ticket.js"></script>
+    <script type="text/javascript">
     
+    function redirectRest(){
+    	
+    	var newUrl = "restApi.php"//refineUrl();//fetch new url
+
+    	//here you pass whatever you want to appear in the url after the domain /
+    	window.history.pushState("object or string", "Title", "/"+newUrl );
+
+
+    	/*Helper function to extract the URL between the last / and before ? 
+    	  If url is www.example.com/file.php?f_id=55 this function will return file.php 
+    	 pseudo code: edit to match your url settings  
+    	*/ 
+    	function refineUrl()
+    	{
+    	    //get full url
+    	    var url = window.location.href;
+    	    //get url after/  
+    	    var value = url.substring(url.firstIndexOf('local') +1);
+    	    //get the part after before ?
+    	    //value  = value.split("?")[0];   
+    	    return value;     
+    	}
+    	//window.location = "http://localhost/restApi.php";
+    }
+    
+    </script>
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->

@@ -47,6 +47,19 @@ var ticket = App.extend(App.Sys, {
 		type: 'select',
 		options: [],
 		required: 'required'
+	},{
+		id: 'priority',
+		label: 'Priority',
+		name: 'priority',
+		type: 'select',
+		options:[{
+			label :"HIGH", value :"HIGH"
+		},{
+			label :"MEDIUM", value :"MEDIUM"
+		},{
+			label :"LOW", value :"LOW"
+		}],
+		required: 'required'
 	}],
 	removeRecord: true
 

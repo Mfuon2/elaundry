@@ -10,15 +10,18 @@ import elaundry.user.model.User;
 
 public class UserDao extends GenericDao <User, Long> implements UserDaoI{
 
-	public Boolean login(String username, String password) {
+	public Boolean login(String username, String password, String usertype) {
 		
 
-		String hql = "FROM User u WHERE u.username=:username "
-				+ "and u.password=:pwd";
+		String hql = "FROM User WHERE username=:username "
+				+ "and password=:pwd "
+				+ "and usertype=:usertype";
 		
 		Query query = em.createQuery(hql)
 				.setParameter("username", username)
-				.setParameter("pwd", password);
+				.setParameter("pwd", password)
+				.setParameter("usertype", usertype);
+		
 
 		List<User> results = query.getResultList();
 

@@ -1,6 +1,7 @@
 package elaundry.ticket.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -35,6 +38,14 @@ public class Ticket implements Serializable {
 	
 	@Column(name = "assign")
 	private String assign;
+	
+	@Column(name = "priority")
+	private String priority;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "postdate")
+	private Date time;
+
 
 	public Long getId() {
 		return id;
@@ -84,6 +95,14 @@ public class Ticket implements Serializable {
 		this.assign = assign;
 	}
 	
+	public String getPriority() {
+		return priority;
+	}
+
+	public void setPriority(String priority) {
+		this.priority = priority;
+	}
+
 	@JsonIgnore
 	public String getJson(){
 		StringBuilder sb = new StringBuilder();
@@ -93,7 +112,9 @@ public class Ticket implements Serializable {
 			.append("\"reportedby\": \"").append(getReportedby()).append("\",")
 			.append("\"descr\": \"").append(getDescr()).append("\",")
 			.append("\"status\": \"").append(getStatus()).append("\",")
-		    .append("\"assign\": \"").append(getAssign()).append("\"");
+		    .append("\"assign\": \"").append(getAssign()).append("\",")
+		    .append("\"priority\": \"").append(getPriority()).append("\"");
+		
 			
 		sb.append("}");
 		

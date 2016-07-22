@@ -6,7 +6,7 @@ import elaundry.clients.model.Clients;
 
 public interface ClientsBeanI {
 
-	void add(Clients company);
+	void add(Clients clients);
 	
 	public String load(Long id);
 
@@ -15,5 +15,7 @@ public interface ClientsBeanI {
 	boolean delete(Long id);
 
 	public String listInJson();
+
+
 
 }
