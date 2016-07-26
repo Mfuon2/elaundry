@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.servlet.jsp.tagext.TryCatchFinally;
 
 public class GenericDao<T, ID extends Serializable> implements GenericDaoI<T, ID> {
 
@@ -32,6 +33,7 @@ public class GenericDao<T, ID extends Serializable> implements GenericDaoI<T, ID
 		this.persistentClass = persistentClass;
 		
 	}
+	
 	public T save(T entity){
 		return em.merge(entity);
 	}

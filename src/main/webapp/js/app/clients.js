@@ -2,11 +2,9 @@ var clients = App.extend(App.Sys, {
 	modelId: 'clients',
 	httpUrl: './clients',
 	responseTarget: 'ajax-content',
-	columnModel: ['fullname','clientsid', 'nationalid','phonNo','email'],
-	columnSeperator: '   -   ',
 	model:[{
 		id: 'client-id',
-		label: '',
+		label: 'No#',
 		name: 'id',
 		hidden: true,
 		type: 'hidden'
@@ -24,7 +22,7 @@ var clients = App.extend(App.Sys, {
 		required: 'required'
 	},{
 		id: 'nationalid',
-		label: 'National Id',
+		label: 'Registration No#',
 		name: 'nationalid',
 		type: 'number',
 		required: 'required'

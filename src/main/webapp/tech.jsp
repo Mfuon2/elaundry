@@ -53,10 +53,13 @@
           if (request.getSession().getAttribute("user") != null) {
         	  out.println(request.getSession()
         			  .getAttribute("user")
-        			  .toString());
+        			  .toString().toUpperCase());
     	}%>
            </h4>
-           <p style="color:lightgreen"><i>Online</i></p>
+           <p style="color:lightgreen"><i>Online</i>
+           <a href="login.jsp">
+          		<span class="glyphicon glyphicon-log-out"> Logout</span>
+        	</a></p>
             <ul class="dropdown-menu">
 								<!-- Menu Body -->
 								<li class="user-body">
@@ -106,7 +109,7 @@
           if (request.getSession().getAttribute("user") != null) {
         	  out.println(request.getSession()
         			  .getAttribute("user")
-        			  .toString());
+        			  .toString().toUpperCase());
     	}%>
            </h4>
            <p style="color:lightgreen"><i>Online</i></p>
@@ -118,7 +121,7 @@
       <!-- search form -->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <input type="text" name="techid" id="techid"  class="form-control" placeholder="Search...">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
@@ -137,7 +140,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-             <li class="active"><a href="index.jsp"><i class="fa fa-circle-o"></i>Main</a></li>
+             <li class="active"><a href="#"><i class="fa fa-circle-o"></i>Main</a></li>
           </ul>
         </li>
         <li>
@@ -145,9 +148,11 @@
             <i class="fa fa-envelope"></i> <span>Notifications</span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="#" onclick="ticket.init();ticket.formName();clearDiv()"><i class="fa fa-circle-o"></i>My Notices</a></li>
+            <li class="active"><a href="#" onclick="ticket.init();ticket.formName();clearDiv()"><i class="fa fa-circle-o"></i>Notifications</a></li>
+            <li class="active"><a href="#" onclick="searchPerson();clearDiv()"><i class="fa fa-circle-o"></i>My Notices</a></li>
           </ul>
         </li>
+        
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -336,11 +341,10 @@
 	<script src="js/app/base.app.js"></script>
 	<script src="js/app/main.js"></script>
 	<script src="dist/sweetalert.min.js"></script>
-    <script src="js/app/clients.js"></script>
     <script src="js/app/repoticket.js"></script>
     <script src="js/app/tech.js"></script>
-    <script src="js/app/user.js"></script>
     <script src="js/app/ticket.js"></script>
+    <script src="js/app/searchTech.js"></script>
     <script type="text/javascript">
     
     function redirectRest(){

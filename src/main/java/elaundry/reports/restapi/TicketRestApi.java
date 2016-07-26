@@ -1,4 +1,4 @@
-package tripticket.company.restapi;
+package elaundry.reports.restapi;
 
 import javax.ejb.EJB;
 import javax.ws.rs.GET;

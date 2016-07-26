@@ -76,8 +76,8 @@ var ticket = App.extend(App.Sys, {
 			//console.log(resp);
 			JSON.parse(resp).forEach(function(el){
 				options.push({
-					label: el.techid +" - "+ el.fullname,
-					value: el.fullname
+					label: el.fullname+" ~ "+el.techid,
+					value: el.techid
 				});
 			});
 			
@@ -95,7 +95,7 @@ var ticket = App.extend(App.Sys, {
 			//console.log(resp);
 			JSON.parse(resp).forEach(function(el){
 				options.push({
-					label: el.clientid +" - "+ el.fullname,
+					label: el.clientid +"-"+ el.fullname,
 					value: el.fullname
 				});
 				

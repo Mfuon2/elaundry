@@ -29,7 +29,7 @@ public class Clients implements Serializable {
 	private String clientid;
 	
 	@Column(name = "nationalid")
-	private Long nationalid;
+	private String nationalid;
 	
 	@Column(name = "email")
 	private String email;
@@ -77,11 +77,11 @@ public class Clients implements Serializable {
 		this.phoneNo = phoneNo;
 	}
 
-	public Long getNationalid() {
+	public String getNationalid() {
 		return nationalid;
 	}
 
-	public void setNationalid(Long nationalid) {
+	public void setNationalid(String nationalid) {
 		this.nationalid = nationalid;
 	}
 

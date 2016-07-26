@@ -6,7 +6,7 @@ var technician = App.extend(App.Sys, {
 	columnSeperator: '   -   ',
 	model:[{
 		id: 'tech-id',
-		label: '',
+		label: 'No#',
 		name: 'id',
 		hidden: true,
 		type: 'hidden'

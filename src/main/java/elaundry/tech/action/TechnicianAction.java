@@ -43,15 +43,30 @@ public class TechnicianAction extends HttpServlet {
 			tech.setId(Long.parseLong(request.getParameter("id")));
 		
 		tech.setFullname(request.getParameter("fullname").toUpperCase());
-		tech.setTechid("TCN - "+ request.getParameter("techid").toUpperCase());
 		tech.setNationalid(Long.parseLong(request.getParameter("nationalid")));
-		tech.setPhoneNo(request.getParameter("phoneNo"));
 		tech.setEmail(request.getParameter("email"));
 		
-		/*tech.setAddress(new Address());
-		tech.getAddress().setTown(request.getParameter("town"));
-		tech.getAddress().setCountry(request.getParameter("country"));
-		tech.getAddress().setBox(request.getParameter("box"));*/
+		String techid = request.getParameter("techid");
+		String firstLetter = String.valueOf(techid.charAt(0));
+		
+		if(firstLetter.equals("T")){
+			tech.setTechid(request.getParameter("techid").toUpperCase());
+			
+		}else{
+			tech.setTechid("TCN"+ request.getParameter("techid").toUpperCase());
+			
+		}
+		
+		String phoneNo = request.getParameter("phoneNo");
+		String firstChar = String.valueOf(phoneNo.charAt(0));
+		
+		if(firstChar.equals("+")){
+			tech.setPhoneNo(request.getParameter("phoneNo").toUpperCase());
+			
+		}else{
+			tech.setPhoneNo("+254"+request.getParameter("phoneNo").toUpperCase());
+			
+		}
 		
 		technicianBean.add(tech);
 		

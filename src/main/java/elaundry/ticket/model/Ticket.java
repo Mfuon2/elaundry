@@ -107,15 +107,13 @@ public class Ticket implements Serializable {
 	public String getJson(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("{")
-			.append("\"id\": \"").append(getId()).append("\",")
-			.append("\"title\": \"").append(getTitle()).append("\",")
-			.append("\"reportedby\": \"").append(getReportedby()).append("\",")
-			.append("\"descr\": \"").append(getDescr()).append("\",")
-			.append("\"status\": \"").append(getStatus()).append("\",")
-		    .append("\"assign\": \"").append(getAssign()).append("\",")
-		    .append("\"priority\": \"").append(getPriority()).append("\"");
-		
-			
+			.append("\"id\":\"").append(getId()).append("\",")
+			.append("\"title\":\"").append(getTitle()).append("\",")
+			.append("\"reportedby\":\"").append(getReportedby()).append("\",")
+			.append("\"descr\":\"").append(getDescr()).append("\",")
+			.append("\"status\":\"").append(getStatus()).append("\",")
+		    .append("\"assign\":\"").append(getAssign()).append("\",")
+		    .append("\"priority\":\"").append(getPriority()).append("\"");	
 		sb.append("}");
 		
 		return sb.toString();

@@ -38,7 +38,8 @@ public class ClientsDao extends GenericDao<Clients, Long> implements ClientsDaoI
 			if(result[0] != null)client.setId( ((BigInteger) result[0]).longValue());
 			if(result[1] != null)client.setFullname( (String) result[1]);
 			if (result[2] != null)client.setClientid( (String) result[2]);
-			if(result[3] != null)client.setNationalid( ((BigInteger) result[3]).longValue());
+			if(result[3] != null)client.setNationalid( ((String) result[3]));
+			//if(result[3] != null)client.setNationalid( ((BigInteger) result[3]).longValue());
 			if (result[4] != null)client.setPhoneNo( (String) result[4]);
 			if (result[5] != null)client.setEmail( (String) result[5]);
 			clients.add(client);

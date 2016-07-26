@@ -12,7 +12,6 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import elaundry.tech.model.Technician;
 import elaundry.ticket.dao.TicketDaoI;
 import elaundry.ticket.model.Ticket;
 

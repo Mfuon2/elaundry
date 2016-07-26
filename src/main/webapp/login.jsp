@@ -75,10 +75,17 @@
                 
                 <span class="tabaddon"><i class="fa fa-lock fa-2x"></i></span>
                 <input class="field" id="password" value=""  name="password" required type="password" placeholder="Password"/>
-                
+                <select name="usertype" id="usertype">
+					<option value="">--Select User Type--</option>
+					<option value="admin">Customer Care</option>
+					<option value="tech">Technician</option>
+					<option value="client">Client</option>
+				</select> 
                 <div class="btn">
-                <input class="field" id="usertype" value=""  name="usertype" required type="text" placeholder="Usertype"/>
-                  <input type="submit" onclick="" value="Login"/>
+                <!-- <input class="field" id="usertype" value=""  name="usertype" required type="text" placeholder="Usertype"/>  -->
+                				
+								<input type="submit" onclick="" value="Login"/>
+                  
                 </div>
               </form>
             </div>

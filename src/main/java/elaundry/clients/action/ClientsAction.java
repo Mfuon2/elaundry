@@ -43,10 +43,36 @@ public class ClientsAction extends HttpServlet{
 			client.setId(Long.parseLong(request.getParameter("id")));
 		
 		client.setFullname(request.getParameter("fullname").toUpperCase());
-		client.setClientid("CLNT-"+ request.getParameter("clientid").toUpperCase());
-		client.setNationalid(Long.parseLong(request.getParameter("nationalid")));
-		client.setPhoneNo("+254 "+ request.getParameter("phoneNo"));
 		client.setEmail(request.getParameter("email"));	
+		
+		String nationalid = request.getParameter("nationalid");
+		String firstLet = String.valueOf(nationalid.charAt(0));
+		
+		if(firstLet.equals("S"))
+			client.setNationalid(request.getParameter("nationalid").toUpperCase());
+		
+		else
+			client.setNationalid("KEN"+ request.getParameter("nationalid").toUpperCase());
+
+		
+		
+		String clientid = request.getParameter("clientid");
+		String firstLetter = String.valueOf(clientid.charAt(0));
+		
+		if(firstLetter.equals("C"))
+			client.setClientid(request.getParameter("clientid").toUpperCase());
+		else
+			client.setClientid("CLNT"+ request.getParameter("clientid").toUpperCase());
+
+		
+		String phoneNo = request.getParameter("phoneNo");
+		String firstChar = String.valueOf(phoneNo.charAt(0));
+		
+		if(firstChar.equals("+"))
+			client.setPhoneNo(request.getParameter("phoneNo").toUpperCase());
+		
+			else
+			client.setPhoneNo("+254 "+request.getParameter("phoneNo").toUpperCase());
 		
 		clientsBean.add(client);
 		

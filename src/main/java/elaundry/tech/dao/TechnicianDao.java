@@ -4,12 +4,9 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import elaundry.clients.model.Clients;
 import elaundry.generic.dao.GenericDao;
 import elaundry.tech.model.Technician;
 

@@ -57,12 +57,16 @@
           if (request.getSession().getAttribute("user") != null) {
         	  out.println(request.getSession()
         			  .getAttribute("user")
-        			  .toString());
+        			  .toString().toUpperCase());
     	}%>
            </h4>
-           <p style="color:lightgreen"><i>Online</i></p>
-            
-            <ul class="dropdown-menu">
+           <p style="color: lightgreen">
+			<i>Online</i>
+			<a href="login.jsp">
+          		<span class="glyphicon glyphicon-log-out"> Logout</span>
+        	</a>
+			</p>
+							<ul class="dropdown-menu">
 								<!-- Menu Body -->
 								<li class="user-body">
 									<div class="row">
@@ -112,7 +116,7 @@
           if (request.getSession().getAttribute("user") != null) {
         	  out.println(request.getSession()
         			  .getAttribute("user")
-        			  .toString());
+        			  .toString().toUpperCase());
     	}%>
            </h4>
            <p style="color:lightgreen"><i>Online</i></p>
@@ -143,7 +147,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-             <li class="active"><a href="index.jsp"><i class="fa fa-circle-o"></i>Main</a></li>
+             <li class="active"><a href="#"><i class="fa fa-circle-o"></i>Main</a></li>
           </ul>
         </li>
         <li class="treeview">

@@ -233,8 +233,7 @@ App.Sys = {
 					responseTarget : me.responseTarget,
 					updateTarget : function(resp) {
 						swal({
-							  title: "Saving Form",
-							  text: "Please Wait..!",
+							  title: "Successful",
 							  type: "success",
 							  showCancelButton: true,
 							  closeOnConfirm: false,
@@ -242,7 +241,7 @@ App.Sys = {
 							},
 							function(){
 							  setTimeout(function(){
-							    swal("Saved Successfully!");
+							    swal("");
 							    me.init();
 							  }, 2000);
 							});
@@ -288,73 +287,6 @@ App.Sys = {
 			});
 
 		},
-//		listView : function() {
-//			var me = this;
-//
-//			me.ajaxRequest.call({
-//				httpMethod : me.httpMethod,
-//				httpUrl : me.httpUrl,
-//				responseTarget : me.responseTarget,
-//				updateTarget : function(resp) {
-//					var listView = "<div class=\"text-right\">";
-//					listView += "<a class=\"btn btn-success\"  id=\"" + me.modelId + "-create-add-form\">Add</a>";
-//					listView += "</div>";
-//
-//					var jsonRecords = JSON.parse(resp);
-//
-//					jsonRecords.forEach(function(el) {
-//						var editId = me.modelId + "-edit-" + el.id;
-//						var delId = me.modelId + "-del-" + el.id;
-//
-//						listView += "<hr>";
-//						listView += "<div class=\"row\">";
-//						listView += "<div class=\"col-md-12\">";
-//						
-//						
-//						if(me.columnModel)
-//							var columnSeperator = ' ';
-//							if(me.columnSeperator) 
-//								columnSeperator = me.columnSeperator;
-//							
-//							var colSize = me.columnModel.length;
-//							
-//							me.columnModel.forEach(function(elCol){
-//								listView += el[elCol];
-//								
-//								colSize--;
-//								
-//								if(colSize != 0)
-//									listView += columnSeperator;
-//							});
-//						listView += "</div>";
-//						listView += "</div>";
-//						listView += "<div class=\"text-right\">";
-//						listView += "<a class=\"btn btn-primary\"  id=\"" + editId + "\">Edit</a>";
-//						listView += " | <a class=\"btn btn-danger\"  id=\""	+ delId + "\">Delete</a>";
-//						listView += "</div>";
-//					});
-//
-//					if (me.getEl(me.responseTarget).innerHTML = listView) {
-//						jsonRecords.forEach(function(el) {
-//							var editId = me.modelId + "-edit-" + el.id;
-//							var delId = me.modelId + "-del-" + el.id;
-//
-//							me.getEl(editId).addEventListener('click', function() {
-//								me.loadForm(el.id);
-//							});
-//
-//							me.getEl(delId).addEventListener('click', function() {
-//								me.removeRec(el.id);
-//							});
-//						});
-//						
-//						me.getEl(me.modelId + "-create-add-form").addEventListener('click', function() {
-//							me.form();
-//						});
-//					}
-//				}
-//			});
-//		},
 		listView : function() {
             var me = this;
 
