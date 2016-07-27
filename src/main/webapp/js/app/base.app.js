@@ -233,19 +233,12 @@ App.Sys = {
 					responseTarget : me.responseTarget,
 					updateTarget : function(resp) {
 						swal({
-							  title: "Successful",
-							  type: "success",
-							  showCancelButton: true,
-							  closeOnConfirm: false,
-							  showLoaderOnConfirm: true,
-							},
-							function(){
-							  setTimeout(function(){
-							    swal("");
-							    me.init();
-							  }, 2000);
+							  title: "Please Wait...",
+							  timer: 500,
+							  imageUrl: "js/app/loading.gif",
+							  showConfirmButton: false
 							});
-						
+						me.init();
 					}
 				});
 			}
@@ -258,6 +251,12 @@ App.Sys = {
 				httpUrl : me.httpUrl + '/load?id=' + id,
 				responseTarget : me.responseTarget,
 				updateTarget : function(resp) {
+					swal({
+						  title: "Please Wait...",
+						  timer: 500,
+						  imageUrl: "js/app/loading.gif",
+						  showConfirmButton: false
+						});
 					me.form();
 					var result = JSON.parse(resp);
 					console.log(result);

@@ -158,6 +158,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
+          <li class="active"><a href="#" onclick="editUsers.init();editUsers.formName();clearDiv()"><i class="fa fa-circle-o"></i> Users Login</a></li>
             <li class="active"><a href="#" onclick="clients.init();clients.formName();clearDiv()"><i class="fa fa-circle-o"></i> Clients</a></li>
             <li class="active"><a href="#" onclick="technician.init();technician.formName();clearDiv()"><i class="fa fa-circle-o"></i> Technicians</a></li>
           </ul>
@@ -369,6 +370,7 @@
 	<script src="js/app/base.app.js"></script>
 	<script src="js/app/main.js"></script>
 	<script src="dist/sweetalert.min.js"></script>
+	<script src="js/app/editUsers.js"></script>
     <script src="js/app/clients.js"></script>
     <script src="js/app/repoticket.js"></script>
     <script src="js/app/tech.js"></script>

@@ -66,4 +66,6 @@ var user = {
 		},
 }
 
-
+function hala(){
+	
+};

@@ -30,11 +30,11 @@ function searchPerson(){
 						"<form autocomplete='off' method='post' action='#'>" +
 
 							"<div class='form-group form-material floating'>" +
-							"<label class='floating-label'>Search by Tech-Id:</label>" +
+							"<label class='floating-label'>Search by Tech-Id: <i class='fa fa-search'></i></label>" +
 							"<input type='text' class='form-control' id='search' name='search' />" +
 							"</div>" +
 						"</form>" +
-						"<a class='btn btn-primary' onclick='savePerson();'>View my tickets</a>" +
+						"<a class='btn btn-primary' onclick='savePerson();'>View My Issues</a>" +
 					"</div>" +
 				"</div>";
 	
@@ -45,8 +45,10 @@ function searchResults(uri){
 	var ajax = new XMLHttpRequest();
 	
 	ajax.onreadystatechange = function(){
-		if(ajax.readyState<4)
+		if(ajax.readyState<4){
+			
 			getElById('ajax-content').innerHTML = "Loading...";
+		}		
 		
 		if(ajax.readyState == 4){
 			if(ajax.status == 200){
@@ -80,9 +82,6 @@ function savePerson(){
 function save(params, uri, message){
 	var ajax = new XMLHttpRequest();
 	ajax.onreadystatechange = function(){
-		if(ajax.readyState<4)
-			getElById('ajax-content').innerHTML = "Loading...";
-		
 		if(ajax.readyState == 4){
 			if(ajax.status == 200){
 				var response = ajax.responseText;
@@ -95,10 +94,23 @@ function save(params, uri, message){
 					
 				}else{
 					
+					swal({
+						  title: "Please Wait...",
+						  timer: 500,
+						  imageUrl: "js/app/loading.gif",
+						  showConfirmButton: false
+						});
+					
 					var data = "<div class=\"panel\">";
 					data+="<header class=\"panel-heading\">";
 					data+="<h3 class=\"panel-title\">";
-					data+="Work List for "+jsonRecords.assign;
+					data+="Work List for "
+					
+					for (var i in jsonRecords){					
+						var id = jsonRecords[i].id;   
+				        
+					}
+					data+="<h3 style='color:red;'>"+ jsonRecords[i].assign +"</h3";
 					data+="</h3>";
 					data+="</header>";
 					data+="<div class=\"panel-body\">";
@@ -138,7 +150,7 @@ function save(params, uri, message){
 								
 			}
 			else
-				bootbox.alert("Failed!")
+				sweetAlert("Your Session Expired ","Re-LogIn", "error");
 		}
 	}
 	ajax.open("POST", uri, true);
