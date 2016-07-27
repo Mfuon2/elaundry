@@ -37,6 +37,8 @@ public class SearchAction extends HttpServlet{
 		
 		if(count == 0){
 			resp.println(count);
+//			String messo = "Confim Your Technical Identity with Customer Care";
+//			resp.println(messo);
 		}else{
 			this.searchCustomer(response, confirmationLink, search);
 		}

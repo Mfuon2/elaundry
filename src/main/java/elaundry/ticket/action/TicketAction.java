@@ -2,6 +2,8 @@ package elaundry.ticket.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -43,12 +45,17 @@ public class TicketAction extends HttpServlet {
 				&& !request.getParameter("id").equals("undefined"))
 			ticket.setId(Long.parseLong(request.getParameter("id")));
 		
+		 Date datenow = new Date();
+		 SimpleDateFormat ft = new SimpleDateFormat ("E dd.MM.yyyy 'at' hh:mm:ss a zzz");
+		 System.out.println("Current Date: " + ft.format(datenow));
+		
 		ticket.setTitle(request.getParameter("title"));
 		ticket.setReportedby(request.getParameter("reportedby"));
 		ticket.setDescr(request.getParameter("descr"));
 		ticket.setStatus(request.getParameter("status"));
 		ticket.setAssign(request.getParameter("assign"));
 		ticket.setPriority(request.getParameter("priority"));
+		ticket.setTime(ft.format(datenow));
 	
 		ticketBean.add(ticket);
 		

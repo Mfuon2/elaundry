@@ -42,9 +42,8 @@ public class Ticket implements Serializable {
 	@Column(name = "priority")
 	private String priority;
 	
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "postdate")
-	private Date time;
+	private String time;
 
 
 	public Long getId() {
@@ -102,6 +101,14 @@ public class Ticket implements Serializable {
 	public void setPriority(String priority) {
 		this.priority = priority;
 	}
+	
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String string) {
+		this.time = string;
+	}
 
 	@JsonIgnore
 	public String getJson(){
@@ -113,13 +120,13 @@ public class Ticket implements Serializable {
 			.append("\"descr\":\"").append(getDescr()).append("\",")
 			.append("\"status\":\"").append(getStatus()).append("\",")
 		    .append("\"assign\":\"").append(getAssign()).append("\",")
-		    .append("\"priority\":\"").append(getPriority()).append("\"");	
+		    .append("\"priority\":\"").append(getPriority()).append("\",")
+		    .append("\"postdate\":\"").append(getTime()).append("\"");	
 		sb.append("}");
 		
 		return sb.toString();
 		
 	}
-	
-	
 
+	
 }

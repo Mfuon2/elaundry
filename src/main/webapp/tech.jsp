@@ -140,7 +140,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-             <li class="active"><a href="#"><i class="fa fa-circle-o"></i>Main</a></li>
+             <li class="active"><a href="tech.jsp"><i class="fa fa-circle-o"></i>Main</a></li>
           </ul>
         </li>
         <li>
@@ -149,7 +149,7 @@
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="#" onclick="ticket.init();ticket.formName();clearDiv()"><i class="fa fa-circle-o"></i>Notifications</a></li>
-            <li class="active"><a href="#" onclick="searchPerson();clearDiv()"><i class="fa fa-circle-o"></i>My Notices</a></li>
+            <li class="active"><a href="#" onclick="searchPerson();clearDiv()"><i class="fa fa-circle-o"></i>Raised Issues</a></li>
           </ul>
         </li>
         

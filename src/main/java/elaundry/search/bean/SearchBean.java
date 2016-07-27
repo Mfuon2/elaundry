@@ -44,7 +44,7 @@ public class SearchBean implements SearchBeanI{
 			sb.append(servicesGiven.getJson());
 			
 			count--;
-			if(count>=1)
+			if(count >= 1)
 				sb.append(",");
 		}
 		sb.append("]");
