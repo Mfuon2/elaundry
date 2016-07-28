@@ -2,6 +2,8 @@ package elaundry.user.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -30,10 +32,19 @@ public class UserLogin extends HttpServlet {
 		password = request.getParameter("password");
 		usertype = request.getParameter("usertype");
 		
+		MessageDigest md;
+		try {
+			
+			md = MessageDigest.getInstance("SHA-256");
+			String text = password;
+			md.update(text.getBytes("UTF-8"));
+			byte[] digest = md.digest();
+			String sha = String.format("%064x", new java.math.BigInteger(1, digest));
+		
 		PrintWriter respons = response.getWriter();
 		Boolean status;
 		
-		status = userBean.login(username, password, usertype);
+		status = userBean.login(username, sha, usertype);
 		HttpSession session = request.getSession();
         session.setAttribute("user", username);
 		
@@ -69,6 +80,10 @@ public class UserLogin extends HttpServlet {
 		} catch (Exception e) {
 			// TODO: handle exception
 			respons.println("<p>An error occured: "+e.getMessage()+"</p>");
+		}
+		
+		} catch (NoSuchAlgorithmException e1) {
+			e1.printStackTrace();
 		}
 	}
 }

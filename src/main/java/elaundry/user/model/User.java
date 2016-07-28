@@ -7,26 +7,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@NamedQueries({ 
-			@NamedQuery(
-					name = User.NQ_ALL, 
-					query = "FROM User u"
-			
-			), 
-			@NamedQuery(
-					name = User.NQ_FINDBYID, 
-					query = "FROM User u WHERE u.id =:id"
-			) 
-		})
+//@NamedQueries({ 
+//			@NamedQuery(
+//					name = User.NQ_ALL, 
+//					query = "FROM User u"
+//			
+//			), 
+//			@NamedQuery(
+//					name = User.NQ_FINDBYID, 
+//					query = "FROM User u WHERE u.id =:id"
+//			) 
+//		})
 @Entity
 @Table(name = "users")
 @XmlRootElement
@@ -88,6 +87,29 @@ public class User implements Serializable {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	@JsonIgnore
+	public String getJson(){
+		StringBuilder sb = new StringBuilder();
+		sb.append("{")
+			.append("\"id\": \"").append(getId()).append("\",")
+			.append("\"fullname\": \"").append(getFullname()).append("\",")
+			.append("\"username\": \"").append(getUsername()).append("\",")
+			.append("\"password\": \"").append(getPassword()).append("\",")
+			.append("\"usertype\": \"").append(getUsertype()).append("\",")
+			.append("\"email\":\"").append(getEmail()).append("\"");
+		sb.append("}");
+		
+		return sb.toString();
+		
 	}
 	
 }

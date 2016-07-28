@@ -10,6 +10,12 @@ public interface UserBeanI {
 	
 	Boolean login(String username, String password, String usertype);
 	
-	List<User> list();
+	public List<User> list();
+
+	public String listInJson();
+
+	public String load(Long id);
+
+	boolean delete(Long user);
 
 }

@@ -4,7 +4,7 @@ var editUsers = App.extend(App.Sys, {
 	responseTarget: 'ajax-content',
 	model:[{
 		id: 'user-id',
-		label: '',
+		label: 'Auto',
 		name: 'id',
 		hidden: true,
 		type: 'hidden'
@@ -14,6 +14,12 @@ var editUsers = App.extend(App.Sys, {
 		name: 'fullname',
 		type: 'text',
 		required: 'required'
+	},{
+		id: 'password',
+		label: 'Password',
+		name: 'password',
+		hidden: true,
+		type: 'hidden'
 	},{
 		id: 'username',
 		label: 'Username',
@@ -28,7 +34,7 @@ var editUsers = App.extend(App.Sys, {
 		required: 'required'
 	},{
 		id: 'usertype',
-		label: 'Choose Type :',
+		label: 'User Type :',
 		name: 'usertype',
 		type: 'select',
 		options:[{
@@ -43,49 +49,6 @@ var editUsers = App.extend(App.Sys, {
 	removeRecord: true
 
 });
-//(function(){
-//	clients.init();
-//})();
-//(function(){
-//	ticket.ajaxRequest.call({
-//		httpMethod : 'GET',
-//		httpUrl : './technician',
-//		updateTarget : function(resp) {
-//			var options = [];
-//			//console.log(resp);
-//			JSON.parse(resp).forEach(function(el){
-//				options.push({
-//					label: el.fullname+" ~ "+el.techid,
-//					value: el.techid
-//				});
-//			});
-//			
-//			//console.log(ticket.model[5].options);
-//			ticket.model[5].options = options;
-//		}
-//	})
-//})();
-//(function(){
-//	ticket.ajaxRequest.call({
-//		httpMethod : 'GET',
-//		httpUrl : './clients',
-//		updateTarget : function(resp) {
-//			var options = [];
-//			//console.log(resp);
-//			JSON.parse(resp).forEach(function(el){
-//				options.push({
-//					label: el.clientid +"-"+ el.fullname,
-//					value: el.fullname
-//				});
-//				
-//			});
-//			
-//			//console.log(ticket.model[5].options);
-//			ticket.model[2].options = options;
-//		}
-//	})
-//})();
-
 
 function clearDiv(){
 	document.getElementById("ajax-content").style.padding = "0px 0px 0px";

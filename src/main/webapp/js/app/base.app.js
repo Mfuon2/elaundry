@@ -331,7 +331,7 @@ App.Sys = {
                         table += '</tr>';
                         }
                         
-                        else if (me.modelId == "technician" || me.modelId == "clients"){
+                        else if (me.modelId == "technician" || me.modelId == "clients" || me.modelId == "editUsers"){
                             table += "<td> <a class=\"btn btn-primary\"  id=\"" + edit + "\">Edit</a></td>";;
                             table += "<td> <a class=\"btn btn-danger\"  id=\""+ del + "\">Delete</a></td>";
                             table += '</tr>';
@@ -352,7 +352,7 @@ App.Sys = {
                             var del ="del-" + el.id;
                             var edit="edit-" + el.id;
                            
-                             if (me.modelId == "technician" || me.modelId == "clients"){
+                             if (me.modelId == "technician" || me.modelId == "clients" || me.modelId == "editUsers"){
                             me.getEl(del).addEventListener('click', function() {
                             	me.removeRec(el.id);
                             });

@@ -1,6 +1,8 @@
 package elaundry.user.bean;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
@@ -15,14 +17,14 @@ import elaundry.user.model.User;
 public class UserBean implements UserBeanI {
 	
 	@PersistenceContext
-	private EntityManager manager;
+	private EntityManager em;
 	
 	@Inject
 	private UserDaoI userDao;
 	
 	@PostConstruct
 	public void init(){
-		userDao.setEm(manager);		
+		userDao.setEm(em);		
 	}
 	
 	public void create(User user){
@@ -45,9 +47,41 @@ public class UserBean implements UserBeanI {
 		}
 	}
 	
-	public List<User> list(){
+	public String load(Long id){
+		User users = userDao.findById(id);
 		
+		if(users != null)
+			return users.getJson();
+		else
+			return "{}";
+	}
+	
+	public List<User> list(){
 		return userDao.list(new User());
 	}
-
+	public String listInJson(){
+		Map<String, Object> filter = new HashMap<String, Object>();
+		List<User> users = userDao.sqlList();
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		
+		int count = userDao.countAll();
+		for(User user : users){
+			sb.append(user.getJson());
+			
+			count--;
+			
+			if(count >= 1)
+				sb.append(",");
+		}
+		
+		sb.append("]");
+		
+		return sb.toString();
+	}
+	public boolean delete(Long id) {
+		userDao.delete(id);
+		
+		return true;
+	}	
 }
