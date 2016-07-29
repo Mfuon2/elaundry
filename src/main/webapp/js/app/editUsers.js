@@ -42,7 +42,7 @@ var editUsers = App.extend(App.Sys, {
 		},{
 			label :"Technician", value :"tech"
 		},{
-			label :"Customer Support", value :"admin"
+			label :"Customer Support", value :"support"
 		}],
 		required: 'required'
 	}],

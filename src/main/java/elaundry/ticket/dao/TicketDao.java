@@ -30,7 +30,7 @@ public class TicketDao extends GenericDao<Ticket, Long> implements TicketDaoI {
 		
 		List<Ticket> ticket = new ArrayList<Ticket>();
 		
-		List<Object []> results = session.createSQLQuery("select id, title,reportedby, descr, status, assign, priority from ticket")
+		List<Object []> results = session.createSQLQuery("select id, title,reportedby, descr, status, assign, priority, postdate from ticket")
 				.list();
 		
 		Ticket tickets;
@@ -43,7 +43,7 @@ public class TicketDao extends GenericDao<Ticket, Long> implements TicketDaoI {
 			if(result[4] != null)tickets.setStatus( (String) result[4]);
 			if(result[5] != null)tickets.setAssign( (String) result[5]);
 			if(result[6] != null)tickets.setPriority( (String) result[6]);
-			//if(result[5] != null)tickets.setAssign( (String) result[5]);
+			if(result[7] != null)tickets.setTime( (String) result[7]);
 			ticket.add(tickets);
 		}
 			return ticket;

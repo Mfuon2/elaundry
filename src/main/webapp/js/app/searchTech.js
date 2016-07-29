@@ -5,8 +5,17 @@ function getElById(el){
 function formDisplay(form){
 	var ajax = new XMLHttpRequest();
 	ajax.onreadystatechange = function(){
-		if(ajax.readyState<4)
+		if(ajax.readyState<4){
+			
 			getElById('ajax-content').innerHTML = "Loading...";
+			
+			swal({
+				  title: "Please Wait...",
+				  timer: 500,
+				  imageUrl: "js/app/loading.gif",
+				  showConfirmButton: false
+				});
+		}
 		
 		if(ajax.readyState == 4){
 			if(ajax.status == 200){
@@ -24,7 +33,7 @@ function searchPerson(){
 	
 	var form = 	"<div class='panel'>" +
 					"<div class='panel-heading'>" +
-						"<h1 class='panel-title'>Clients Reporting Page Or <a href='contact.jsp'>Contact Us</a></h1>" +
+						"<h1 class='panel-title'>View Occupied Technicians</h1>" +
 					"</div>" +
 					"<div class='panel-body container-fluid'>" +
 						"<form autocomplete='off' method='post' action='#'>" +
@@ -34,7 +43,7 @@ function searchPerson(){
 							"<input type='text' class='form-control' id='search' name='search' />" +
 							"</div>" +
 						"</form>" +
-						"<a class='btn btn-primary' onclick='savePerson();'>View My Issues</a>" +
+						"<a class='btn btn-primary' onclick='searchTech();'>List Issues</a>" +
 					"</div>" +
 				"</div>";
 	
@@ -70,7 +79,7 @@ function viewPeople(){
 
 ////+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-function savePerson(){
+function searchTech(){
 	var search = getElById('search').value;
 	
 	var params = 'search=' +encodeURIComponent(search); 

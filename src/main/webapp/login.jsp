@@ -77,7 +77,7 @@
                 <input class="field" id="password" value=""  name="password" required type="password" placeholder="Password"/>
                 <select name="usertype" id="usertype">
 					<option value="">--Select User Type--</option>
-					<option value="admin">Customer Care</option>
+					<option value="support">Customer Support</option>
 					<option value="tech">Technician</option>
 					<option value="client">Client</option>
 				</select> 
@@ -95,22 +95,9 @@
 	</ul>
 	</section>
 </div>
-<script type="text/javascript">
-function validate(){
-	var input = document.getElementById("pass").value;
-	if(input.length < 7){
-		document.getElementById("Error").innerHTML = "Weak Password";
-		document.getElementById("Error").style.color = "red"
-	}else{
-		document.getElementById("Error").innerHTML = "Strong Password";
-		document.getElementById("Error").style.color = "white"
-	}
-}
-
-
-</script>
 
  <script src="js/app/user.js"></script>
+ <script src="dist/sweetalert.min.js"></script>
     
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

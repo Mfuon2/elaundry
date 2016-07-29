@@ -51,18 +51,16 @@
         <ul class="nav navbar-nav">
            
           <li class="dropdown user user-menu">
-          <h4 style="color:white">Welcome 
-           <%
+         <h4 style="color:white;">Welcome, 
+          <%
           if (request.getSession().getAttribute("user") != null) {
         	  out.println(request.getSession()
         			  .getAttribute("user")
         			  .toString().toUpperCase());
-    	}%>
+    	}%><a href="login.jsp">
+          		<button class='btn btn-flat-primary'> Logout</button>
+        	</a>
            </h4>
-           <p style="color:lightgreen"><i>Online</i>
-           <a href="login.jsp">
-          		<span class="glyphicon glyphicon-log-out"> Logout</span>
-        	</a></p>
     	<ul class="dropdown-menu">
 								<!-- Menu Body -->
 								<li class="user-body">
@@ -98,21 +96,14 @@
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
-        <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-           <h4 style="color:white">Welcome 
-           <%
+        <h2 style="color:white;background-color:black; text-align: center; padding: 10px; ">
+          <%
           if (request.getSession().getAttribute("user") != null) {
         	  out.println(request.getSession()
         			  .getAttribute("user")
         			  .toString().toUpperCase());
     	}%>
-           </h4>
-           <p style="color:lightgreen"><i>Online</i></p>
-        </div>
-        <div class="pull-left info">
-         
-        </div>
+           </h2>
       </div>
       <!-- search form -->
       <form action="#" method="get" class="sidebar-form">
@@ -145,7 +136,7 @@
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="#" onclick="createPerson();clearDiv()"><i class="fa fa-circle-o"></i>Post Issue</a></li>
-             <li class="active"><a href="#"><i class="fa fa-circle-o"></i>Contact Us</a></li>
+             <li class="active"><a href="#" onclick="contact.list();clearDiv()"><i class="fa fa-circle-o"></i>Contact Us</a></li>
           </ul>
         </li>
         
@@ -303,9 +294,8 @@
 	<script src="js/app/main.js"></script>
     <script src="js/app/repoticket.js"></script>
     <script src="dist/sweetalert.min.js"></script>
-    <script src="js/app/tech.js"></script>
-    <script src="js/app/user.js"></script>
     <script src="js/app/ticket.js"></script>
+     <script src="js/app/contact.js"></script>
     
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>

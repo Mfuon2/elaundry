@@ -52,7 +52,7 @@ function createPerson(){
 							"<div class='form-group form-material floating'>" +
 							"<label class='floating-label'>Problem Description</label>" +
 							"<textarea class='form-control'id='descr' name='descr' rows='3'></textarea>" +
-						"</div>" +
+						"</div>"+
 						
 						"</form>" +
 						"<a class='btn btn-primary' onclick='savePerson();'>Report Problem</a>" +

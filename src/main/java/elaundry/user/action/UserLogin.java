@@ -52,7 +52,7 @@ public class UserLogin extends HttpServlet {
 			if(status == true){
 				System.out.println("+++++++++++++++++++++++++++++++++++"+usertype+"+++++++++++++++");
 				
-				if("admin".equals(usertype)){	
+				if("support".equals(usertype) || "admin".equals(usertype)){	
 				RequestDispatcher req = request.getRequestDispatcher("index.jsp");
 				req.forward(request, response);  
 				}
@@ -72,7 +72,10 @@ public class UserLogin extends HttpServlet {
 				
 			}else{
 				
-				respons.println("<p> Invalid Login</p>");
+				respons.println("<script type='text/javascript'>"
+						+ "alert(\"Invalid Login Credentials OR Contact Admin for Account Activation\");"
+						+ "window.location=\"http://localhost:8080/elaundry/\";"
+						+ "</script>");
 				
 			
 			}

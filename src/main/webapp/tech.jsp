@@ -48,18 +48,16 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
         <li class="dropdown user user-menu">
-          <h4 style="color:white">Welcome 
-           <%
+          <h4 style="color:white;">Welcome, 
+          <%
           if (request.getSession().getAttribute("user") != null) {
         	  out.println(request.getSession()
         			  .getAttribute("user")
         			  .toString().toUpperCase());
-    	}%>
+    	}%><a href="login.jsp">
+          		<button class='btn btn-flat-primary'> Logout</button>
+        	</a>
            </h4>
-           <p style="color:lightgreen"><i>Online</i>
-           <a href="login.jsp">
-          		<span class="glyphicon glyphicon-log-out"> Logout</span>
-        	</a></p>
             <ul class="dropdown-menu">
 								<!-- Menu Body -->
 								<li class="user-body">
@@ -103,20 +101,14 @@
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
-        <div class="pull-left image">    
-          <h4 style="color:white">Welcome 
-           <%
+        <h2 style="color:white;background-color:black; text-align: center; padding: 10px; ">
+          <%
           if (request.getSession().getAttribute("user") != null) {
         	  out.println(request.getSession()
         			  .getAttribute("user")
         			  .toString().toUpperCase());
     	}%>
-           </h4>
-           <p style="color:lightgreen"><i>Online</i></p>
-        </div>
-        <div class="pull-left info">
-         
-        </div>
+           </h2>
       </div>
       <!-- search form -->
       <form action="#" method="get" class="sidebar-form">
@@ -148,7 +140,7 @@
             <i class="fa fa-envelope"></i> <span>Notifications</span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="#" onclick="ticket.init();ticket.formName();clearDiv()"><i class="fa fa-circle-o"></i>Notifications</a></li>
+            <li class="active"><a href="#" onclick="ticket.init();ticket.formName();clearDiv()"><i class="fa fa-circle-o"></i>All Tickets</a></li>
             <li class="active"><a href="#" onclick="searchPerson();clearDiv()"><i class="fa fa-circle-o"></i>Raised Issues</a></li>
           </ul>
         </li>
@@ -341,38 +333,10 @@
 	<script src="js/app/base.app.js"></script>
 	<script src="js/app/main.js"></script>
 	<script src="dist/sweetalert.min.js"></script>
-    <script src="js/app/repoticket.js"></script>
     <script src="js/app/tech.js"></script>
     <script src="js/app/ticket.js"></script>
     <script src="js/app/searchTech.js"></script>
-    <script type="text/javascript">
-    
-    function redirectRest(){
-    	
-    	var newUrl = "restApi.php"//refineUrl();//fetch new url
-
-    	//here you pass whatever you want to appear in the url after the domain /
-    	window.history.pushState("object or string", "Title", "/"+newUrl );
-
-
-    	/*Helper function to extract the URL between the last / and before ? 
-    	  If url is www.example.com/file.php?f_id=55 this function will return file.php 
-    	 pseudo code: edit to match your url settings  
-    	*/ 
-    	function refineUrl()
-    	{
-    	    //get full url
-    	    var url = window.location.href;
-    	    //get url after/  
-    	    var value = url.substring(url.firstIndexOf('local') +1);
-    	    //get the part after before ?
-    	    //value  = value.split("?")[0];   
-    	    return value;     
-    	}
-    	//window.location = "http://localhost/restApi.php";
-    }
-    
-    </script>
+ 
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
