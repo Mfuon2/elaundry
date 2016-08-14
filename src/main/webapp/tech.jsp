@@ -1,3 +1,7 @@
+<%
+if (request.getSession().getAttribute("user") != null) {
+%>
+   		   
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,11 +54,11 @@
         <li class="dropdown user user-menu">
           <h4 style="color:white;">Welcome, 
           <%
-          if (request.getSession().getAttribute("user") != null) {
         	  out.println(request.getSession()
         			  .getAttribute("user")
         			  .toString().toUpperCase());
-    	}%><a href="login.jsp">
+    	
+    	%><a href="./main">
           		<button class='btn btn-flat-primary'> Logout</button>
         	</a>
            </h4>
@@ -123,24 +127,14 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">Technicians</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-             <li class="active"><a href="tech.jsp"><i class="fa fa-circle-o"></i>Main</a></li>
-          </ul>
-        </li>
+        <li class="header">TECHNICIANS</li>
+ 
         <li>
           <a href="pages/mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Notifications</span>
+            <i class="fa fa-envelope"></i> <span>Operations</span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="#" onclick="ticket.init();ticket.formName();clearDiv()"><i class="fa fa-circle-o"></i>All Tickets</a></li>
+            <li class="active"><a href="#" onclick="ticket.init();ticket.formName();clearDiv()"><i class="fa fa-circle-o"></i>General Tickets</a></li>
             <li class="active"><a href="#" onclick="searchPerson();clearDiv()"><i class="fa fa-circle-o"></i>Raised Issues</a></li>
           </ul>
         </li>
@@ -165,6 +159,7 @@
       <!-- /.row -->
 
       <div class="row">
+      <h3 style="padding: 10px;">TECHNICIAN TERMINAL</h3>
         <div class="col-md-12">
           <div class="box">
           
@@ -196,7 +191,7 @@
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
     </div>
-    <strong>Copyright &copy; Mfuon 2016 
+    <strong>Copyright &copy; Mfuon 2016 </strong>
   </footer>
 
   <!-- Control Sidebar -->
@@ -216,18 +211,13 @@
             <a href="javascript:void(0)">
               <i class="menu-icon fa fa-birthday-cake bg-red"></i>
 
-              <div class="menu-info">
-               
-              </div>
+             
             </a>
           </li>
           <li>
             <a href="javascript:void(0)">
               <i class="menu-icon fa fa-user bg-yellow"></i>
 
-              <div class="menu-info">
-                
-              </div>
             </a>
           </li>
           <li>
@@ -239,9 +229,6 @@
             <a href="javascript:void(0)">
               <i class="menu-icon fa fa-file-code-o bg-green"></i>
 
-              <div class="menu-info">
-                
-              </div>
             </a>
           </li>
         </ul>
@@ -360,3 +347,14 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+<%
+}else{
+	out.println("<script type='text/javascript'>"
+			+ "alert(\"User Session Expired\");"
+			+ "window.location=\"http://localhost:8080/elaundry/\";"
+			+ "</script>");
+}
+    	
+    	%>
+
+

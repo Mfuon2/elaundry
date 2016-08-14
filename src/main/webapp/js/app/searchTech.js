@@ -1,3 +1,22 @@
+var search = {
+		 list: function(){
+	          var ajax = new XMLHttpRequest();
+	          
+	          ajax.onreadystatechange = function(){
+	             
+	             if(ajax.readyState == 4){
+	                if(ajax.status == 200){
+	                   document.getElementById('ajax-content').innerHTML = ajax.responseText;
+	                }
+	             }
+	          }
+	          
+	          ajax.open("GET", "./search/list1", true);
+	          ajax.send();
+	      }
+		
+};
+
 function getElById(el){
 	return document.getElementById(el);
 }
@@ -28,6 +47,21 @@ function formDisplay(form){
 	ajax.send();
 		
 }
+function myKeyPress() {
+	var ajax = new XMLHttpRequest();
+    
+    ajax.onreadystatechange = function(){
+       
+       if(ajax.readyState == 4){
+          if(ajax.status == 200){
+             document.getElementById('ajax-content').innerHTML = ajax.responseText;
+          }
+       }
+    }
+    
+    ajax.open("GET", "./search/list1", true);
+    ajax.send();
+}
 
 function searchPerson(){
 	
@@ -36,14 +70,13 @@ function searchPerson(){
 						"<h1 class='panel-title'>View Occupied Technicians</h1>" +
 					"</div>" +
 					"<div class='panel-body container-fluid'>" +
-						"<form autocomplete='off' method='post' action='#'>" +
-
+						"<form method='#' action='./search/list1'>" +
 							"<div class='form-group form-material floating'>" +
 							"<label class='floating-label'>Search by Tech-Id: <i class='fa fa-search'></i></label>" +
-							"<input type='text' class='form-control' id='search' name='search' />" +
+							"<input type='text' class='form-control'  id='search' name='search'/>" +
 							"</div>" +
+							"<a class='btn btn-primary' onclick='myKeyPress();'>List Issues</a>" +
 						"</form>" +
-						"<a class='btn btn-primary' onclick='searchTech();'>List Issues</a>" +
 					"</div>" +
 				"</div>";
 	
@@ -132,6 +165,8 @@ function save(params, uri, message){
 					data+="<th>Client Name</th>";
 					data+="<th>Ticket Status</th>";
 					data+="<th>Last Updated</th>";
+					data+="<th>Update Time</th>";
+					data+="<th>Update By</th>";
 					data+="</tr>";
 					data+="</thead>";
 					data+="<tbody>";
@@ -144,6 +179,9 @@ function save(params, uri, message){
 				        data+="<td>"+jsonRecords[i].reportedby+"</td>";
 				        data+="<td>"+jsonRecords[i].status+"</td>";
 				        data+="<td>"+jsonRecords[i].postdate+"</td>";
+				        data+="<td>"+jsonRecords[i].updatetime+"</td>";
+				        data+="<td>"+jsonRecords[i].updatedby+"</td>";
+				        
 				        data+="</tr>";
 				        
 					}						

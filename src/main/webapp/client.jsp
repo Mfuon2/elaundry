@@ -1,3 +1,8 @@
+<%
+String usersession = request.getSession().getAttribute("user").toString().toUpperCase();
+if (!(usersession.equals(""))) {
+%>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,6 +58,7 @@
           <li class="dropdown user user-menu">
          <h4 style="color:white;">Welcome, 
           <%
+          
           if (request.getSession().getAttribute("user") != null) {
         	  out.println(request.getSession()
         			  .getAttribute("user")
@@ -118,25 +124,18 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">Clients Dashboard</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        <li class="header">CLIENTS DASHBOARD</li>
+        <li>
+          <a href="pages/mailbox/mailbox.html">
+            <i class="fa fa-envelope"></i> <span>CLIENT OPTIONS</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-             <li class="active"><a href="client.jsp"><i class="fa fa-circle-o"></i>Main</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="pages/mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Notifications</span>
-          </a>
-          <ul class="treeview-menu">
             <li class="active"><a href="#" onclick="createPerson();clearDiv()"><i class="fa fa-circle-o"></i>Post Issue</a></li>
              <li class="active"><a href="#" onclick="contact.list();clearDiv()"><i class="fa fa-circle-o"></i>Contact Us</a></li>
+              <li class="active"><a href="location.jsp"  target="_blank"><i class="fa fa-circle-o"></i>Locate On Maps</a></li>
           </ul>
         </li>
         
@@ -161,12 +160,13 @@
       <!-- /.row -->
 
       <div class="row">
+      <h3 style="padding: 10px;">CLIENTS TERMINAL</h3>
         <div class="col-md-12">
           <div class="box">
           
             <div class="box-header with-border">
             <h2 style="text-align:center;color:Green">Desk~X Systems Support</h2>
-              <h3 class="box-title" id="formName"></h3><pre><i>Post Your Issue here and Get help ASAP!!</i></pre>
+              <h3 class="box-title" id="formName"></h3><pre style="text-align: center;color: red"><i>Post Your Issue here and Get help ASAP!!</i></pre>
 			
             </div>
             
@@ -296,7 +296,8 @@
     <script src="dist/sweetalert.min.js"></script>
     <script src="js/app/ticket.js"></script>
      <script src="js/app/contact.js"></script>
-    
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcsmPcqniXkaGVEevm608o9HzL6VnYT3Q&callback=initialize"></script>
+ 
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
@@ -320,3 +321,12 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
+<%
+}else{
+	out.println("<script type='text/javascript'>"
+			+ "alert(\"User Session Expired\");"
+			+ "window.location=\"http://localhost:8080/elaundry/\";"
+			+ "</script>");
+}
+    	
+%>

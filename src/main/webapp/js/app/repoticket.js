@@ -24,7 +24,7 @@ function createPerson(){
 	
 	var form = 	"<div class='panel'>" +
 					"<div class='panel-heading'>" +
-						"<h1 class='panel-title'>Clients Reporting Page Or <a href='contact.jsp'>Contact Us</a></h1>" +
+						"<h1 class='panel-title'>Clients Reporting Page Or <a href='contact.list()'>Contact Us</a></h1>" +
 					"</div>" +
 					"<div class='panel-body container-fluid'>" +
 						"<form autocomplete='off' method='post' action='#'>" +

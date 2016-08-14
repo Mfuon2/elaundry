@@ -1,3 +1,7 @@
+<%
+if (request.getSession().getAttribute("user") != null) {
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,7 +95,7 @@
 						</li>
           <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+            <a href="#" data-toggle="control-sidebar" on><i class="fa fa-gears"></i></a>
           </li>
         </ul>
         
@@ -191,6 +195,7 @@
       <!-- /.row -->
 
       <div class="row">
+      <h3 style="padding: 10px;">SUPPORT TERMINAL</h3>
         <div class="col-md-12">
           <div class="box">
           
@@ -366,34 +371,8 @@
     <script src="js/app/tech.js"></script>
     <script src="js/app/user.js"></script>
     <script src="js/app/ticket.js"></script>
-    <script type="text/javascript">
     
-    function redirectRest(){
-    	
-    	var newUrl = "restApi.php"//refineUrl();//fetch new url
 
-    	//here you pass whatever you want to appear in the url after the domain /
-    	window.history.pushState("object or string", "Title", "/"+newUrl );
-
-
-    	/*Helper function to extract the URL between the last / and before ? 
-    	  If url is www.example.com/file.php?f_id=55 this function will return file.php 
-    	 pseudo code: edit to match your url settings  
-    	*/ 
-    	function refineUrl()
-    	{
-    	    //get full url
-    	    var url = window.location.href;
-    	    //get url after/  
-    	    var value = url.substring(url.firstIndexOf('local') +1);
-    	    //get the part after before ?
-    	    //value  = value.split("?")[0];   
-    	    return value;     
-    	}
-    	//window.location = "http://localhost/restApi.php";
-    }
-    
-    </script>
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
@@ -415,5 +394,15 @@
 <script src="dist/js/pages/dashboard2.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+
 </body>
 </html>
+<%
+}else{
+	out.println("<script type='text/javascript'>"
+			+ "alert(\"User Session Expired\");"
+			+ "window.location=\"http://localhost:8080/elaundry/\";"
+			+ "</script>");
+}
+    	
+%>

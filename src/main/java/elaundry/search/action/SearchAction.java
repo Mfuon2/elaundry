@@ -2,6 +2,7 @@ package elaundry.search.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -22,6 +23,11 @@ public class SearchAction extends HttpServlet{
 			throws ServletException, IOException{
 		String [] pathCmp = request.getRequestURI().split("/");
 		String path = pathCmp[pathCmp.length-1];
+		
+		if(path.equalsIgnoreCase("list1")){
+			this.list1(request, response);
+						
+		}
 				
 	}
 	
@@ -40,7 +46,7 @@ public class SearchAction extends HttpServlet{
 //			String messo = "Confim Your Technical Identity with Customer Care";
 //			resp.println(messo);
 		}else{
-			this.searchCustomer(response, confirmationLink, search);
+			this.searchCustomer(response, confirmationLink, search);	
 		}
 	}
 	
@@ -48,6 +54,16 @@ public class SearchAction extends HttpServlet{
 			throws ServletException, IOException{
 		PrintWriter resp = response.getWriter();
 		resp.println(searchBean.servicesGivenInJson(confirmationLink, search));
+	}
+	
+	public void list1(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException{
+		
+		PrintWriter wrter = response.getWriter();
+		
+		String search = request.getParameter("search").toUpperCase(); 
+		String confirmationLink = request.getSession().getAttribute("user").toString();
+		wrter.println("jjjjjjjjjjjjjjjjjj"+searchBean.servicesGivenInJson(confirmationLink, search));
 	}
 	
 }

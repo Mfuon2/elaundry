@@ -2,6 +2,7 @@ package elaundry.ticket.dao;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -30,7 +31,7 @@ public class TicketDao extends GenericDao<Ticket, Long> implements TicketDaoI {
 		
 		List<Ticket> ticket = new ArrayList<Ticket>();
 		
-		List<Object []> results = session.createSQLQuery("select id, title,reportedby, descr, status, assign, priority, postdate from ticket")
+		List<Object []> results = session.createSQLQuery("select id, title,reportedby, descr, status, assign, priority, postdate,updatedby,updatetime,days from ticket")
 				.list();
 		
 		Ticket tickets;
@@ -43,7 +44,10 @@ public class TicketDao extends GenericDao<Ticket, Long> implements TicketDaoI {
 			if(result[4] != null)tickets.setStatus( (String) result[4]);
 			if(result[5] != null)tickets.setAssign( (String) result[5]);
 			if(result[6] != null)tickets.setPriority( (String) result[6]);
-			if(result[7] != null)tickets.setTime( (String) result[7]);
+			if(result[7] != null)tickets.setPostdate( (String) result[7]);
+			if(result[8] != null)tickets.setUpdatedby( (String) result[8]);
+			if(result[9] != null)tickets.setUpdatetime( (String) result[9]);
+			if(result[10] != null)tickets.setDays( ((BigInteger) result[10]).longValue());
 			ticket.add(tickets);
 		}
 			return ticket;

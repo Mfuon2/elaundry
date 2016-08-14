@@ -24,6 +24,20 @@ public class UserLogin extends HttpServlet {
 	private UserBeanI userBean;
 	
 	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException ,IOException {
+		
+		HttpSession session = request.getSession();
+		session.invalidate();
+		System.out.println("REdirected");
+		response.sendRedirect("login.jsp");
+		return;
+		
+		
+	}
+	
+	
+	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 			

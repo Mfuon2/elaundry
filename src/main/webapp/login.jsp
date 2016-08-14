@@ -68,7 +68,7 @@
             <div id="tab-content2" class="tab-content">
             
               <form method="post" name="register" action="${pageContext.request.contextPath}/main">
-              <%--  --%>
+              <%--- --%>
               
                 <span class="tabaddon"><i class="fa fa-envelope fa-2x"></i></span>
                 <input class="field" id="username" value="" name="username" required type="text" placeholder="Username"/>

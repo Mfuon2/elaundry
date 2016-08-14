@@ -60,6 +60,22 @@ var ticket = App.extend(App.Sys, {
 			label :"LOW", value :"LOW"
 		}],
 		required: 'required'
+	},{
+		id: 'postdate',
+		label: 'Postdate',
+		name: 'postdate',
+		disabled: true,
+		type: 'text'
+	},{
+		id: 'updatetime',
+		label: 'Update Time',
+		name: 'updatetime',
+		type: 'text'
+	},{
+		id: 'updatedby',
+		label: 'Update By',
+		name: 'updatedby',
+		type: 'text'
 	}],
 	removeRecord: true
 

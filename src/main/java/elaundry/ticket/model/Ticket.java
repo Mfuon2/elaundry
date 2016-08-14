@@ -43,8 +43,41 @@ public class Ticket implements Serializable {
 	private String priority;
 	
 	@Column(name = "postdate")
-	private String time;
+	private String postdate;
+	
+	@Column(name = "updatedby")
+	private String updatedby;
+	
+	@Column(name = "updatetime")
+	private String updatetime;
+	
+	@Column(name = "days")
+	private Long days;
 
+
+	public Long getDays() {
+		return days;
+	}
+
+	public void setDays(Long days) {
+		this.days = days;
+	}
+
+	public String getUpdatetime() {
+		return updatetime;
+	}
+
+	public void setUpdatetime(String date) {
+		this.updatetime = date;
+	}
+
+	public String getUpdatedby() {
+		return updatedby;
+	}
+
+	public void setUpdatedby(String updatedby) {
+		this.updatedby = updatedby;
+	}
 
 	public Long getId() {
 		return id;
@@ -102,12 +135,12 @@ public class Ticket implements Serializable {
 		this.priority = priority;
 	}
 	
-	public String getTime() {
-		return time;
+	public String getPostdate() {
+		return postdate;
 	}
 
-	public void setTime(String string) {
-		this.time = string;
+	public void setPostdate(String curdate) {
+		this.postdate = curdate;
 	}
 
 	@JsonIgnore
@@ -121,7 +154,11 @@ public class Ticket implements Serializable {
 			.append("\"status\":\"").append(getStatus()).append("\",")
 		    .append("\"assign\":\"").append(getAssign()).append("\",")
 		    .append("\"priority\":\"").append(getPriority()).append("\",")
-		    .append("\"postdate\":\"").append(getTime()).append("\"");	
+		    .append("\"postdate\":\"").append(getPostdate()).append("\",")
+			.append("\"updatedby\":\"").append(getUpdatedby()).append("\",")
+			.append("\"updatetime\":\"").append(getUpdatetime()).append("\",")
+			.append("\"days\":\"").append(getDays()).append("\"");
+		
 		sb.append("}");
 		
 		return sb.toString();
