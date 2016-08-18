@@ -18,6 +18,7 @@ import elaundry.search.bean.SearchBeanI;
 public class SearchAction extends HttpServlet{
 	@EJB
 	private SearchBeanI searchBean;
+	int countTickets;
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
@@ -25,8 +26,11 @@ public class SearchAction extends HttpServlet{
 		String path = pathCmp[pathCmp.length-1];
 		
 		if(path.equalsIgnoreCase("list1")){
-			this.list1(request, response);
-						
+			this.list1(request, response);				
+		}else if(path.equalsIgnoreCase("list2")){
+			this.list2(request,response);
+		}else if(path.equalsIgnoreCase("allTicktets")){
+			this.allTickets(request,response);
 		}
 				
 	}
@@ -39,12 +43,11 @@ public class SearchAction extends HttpServlet{
 		confirmationLink = request.getSession().getAttribute("user").toString();
 		search = request.getParameter("search").toUpperCase(); 
 		
-		int count = searchBean.countCustomerSearch(confirmationLink, search);
+		int count = searchBean.countTickets(confirmationLink, search);
 		
 		if(count == 0){
 			resp.println(count);
-//			String messo = "Confim Your Technical Identity with Customer Care";
-//			resp.println(messo);
+
 		}else{
 			this.searchCustomer(response, confirmationLink, search);	
 		}
@@ -63,7 +66,26 @@ public class SearchAction extends HttpServlet{
 		
 		String search = request.getParameter("search").toUpperCase(); 
 		String confirmationLink = request.getSession().getAttribute("user").toString();
-		wrter.println("jjjjjjjjjjjjjjjjjj"+searchBean.servicesGivenInJson(confirmationLink, search));
+		wrter.println(searchBean.servicesGivenInJson(confirmationLink, search));
 	}
+	public void list2(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException{
+		
+		PrintWriter wrter = response.getWriter();
+		countTickets = searchBean.countOpenTickets();
+		System.out.println("======================================================"+countTickets);
+		wrter.println(countTickets);
+	
+	}
+	public void allTickets(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException{
+		
+		PrintWriter wrter = response.getWriter();
+		countTickets = searchBean.countAllTickets();
+		System.out.println("======================================================"+countTickets);
+		wrter.println(countTickets);
+	
+	}
+	
 	
 }

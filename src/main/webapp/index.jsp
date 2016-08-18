@@ -1,3 +1,4 @@
+<%@page import="elaundry.search.action.SearchAction"%>
 <%
 if (request.getSession().getAttribute("user") != null) {
 %>
@@ -120,6 +121,7 @@ if (request.getSession().getAttribute("user") != null) {
       </div>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
+     
       <ul class="sidebar-menu">
         <li class="header">Support Terminal</li>
         <li class="active treeview">
@@ -193,10 +195,11 @@ if (request.getSession().getAttribute("user") != null) {
        
       </div>
       <!-- /.row -->
+     
+      
 
       <div class="row">
-      <h3 style="padding: 10px;">SUPPORT TERMINAL</h3>
-        <div class="col-md-12">
+      <div class="col-md-12">
           <div class="box">
           
             <div class="box-header with-border">
@@ -207,6 +210,68 @@ if (request.getSession().getAttribute("user") != null) {
             
             <div class="box-footer">
               <div  style="margin-left:2%;margin-right:2%;" id="ajax-content">
+               <!--Start Statistics -->
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner" style="text-align: center;">
+              <h3 id="all-tickets"></h3>
+              <p>Tickets</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a class="small-box-footer" href="#" onclick="ticket.init();ticket.formName();clearDiv()">More info<i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div style="text-align: center;" class="inner" >
+              <h3 id="open-tickets"><!-- <sup style="font-size: 20px">%</sup> --></h3>
+              <p>Open Tickets</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a class="small-box-footer" href="#">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>44</h3>
+
+              <p>User Registrations</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a class="small-box-footer" href="#">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>65</h3>
+
+              <p>Unique Visitors</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a class="small-box-footer" href="#">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <!--End Statistics -->
    
               
               </div>

@@ -28,8 +28,8 @@ public class SearchBean implements SearchBeanI{
 		searchDao.setEm(em);
 	}
 
-	public int countCustomerSearch(String confirmationLink, String search) {
-		return searchDao.countCustomerSearch(confirmationLink, search);
+	public int countTickets(String confirmationLink, String search) {
+		return searchDao.countTickets(confirmationLink, search);
 	}
 
 	public String servicesGivenInJson(String confirmationLink, String search) {
@@ -39,7 +39,7 @@ public class SearchBean implements SearchBeanI{
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
 		
-		int count = searchDao.countCustomerSearch(confirmationLink, search);
+		int count = searchDao.countTickets(confirmationLink, search);
 		for(Ticket servicesGiven : services){
 			sb.append(servicesGiven.getJson());
 			
@@ -50,5 +50,12 @@ public class SearchBean implements SearchBeanI{
 		sb.append("]");
 		return sb.toString();
 	}
+
+	public int countOpenTickets() {
+		return searchDao.countOpenTickets();
+	}
 	
+	public int countAllTickets(){
+		return searchDao.countAllTickets();
+	}
 }

@@ -1,22 +1,3 @@
-var search = {
-		 list: function(){
-	          var ajax = new XMLHttpRequest();
-	          
-	          ajax.onreadystatechange = function(){
-	             
-	             if(ajax.readyState == 4){
-	                if(ajax.status == 200){
-	                   document.getElementById('ajax-content').innerHTML = ajax.responseText;
-	                }
-	             }
-	          }
-	          
-	          ajax.open("GET", "./search/list1", true);
-	          ajax.send();
-	      }
-		
-};
-
 function getElById(el){
 	return document.getElementById(el);
 }
@@ -47,21 +28,6 @@ function formDisplay(form){
 	ajax.send();
 		
 }
-function myKeyPress() {
-	var ajax = new XMLHttpRequest();
-    
-    ajax.onreadystatechange = function(){
-       
-       if(ajax.readyState == 4){
-          if(ajax.status == 200){
-             document.getElementById('ajax-content').innerHTML = ajax.responseText;
-          }
-       }
-    }
-    
-    ajax.open("GET", "./search/list1", true);
-    ajax.send();
-}
 
 function searchPerson(){
 	
@@ -75,7 +41,7 @@ function searchPerson(){
 							"<label class='floating-label'>Search by Tech-Id: <i class='fa fa-search'></i></label>" +
 							"<input type='text' class='form-control'  id='search' name='search'/>" +
 							"</div>" +
-							"<a class='btn btn-primary' onclick='myKeyPress();'>List Issues</a>" +
+							"<a class='btn btn-primary' onclick='searchTech()'>List Issues</a>" +
 						"</form>" +
 					"</div>" +
 				"</div>";
@@ -103,13 +69,6 @@ function searchResults(uri){
 	ajax.send();
 }
 
-
-function viewPeople(){
-
-	displayStaff('./search/*');
-	
-}
-
 ////+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 function searchTech(){
@@ -118,7 +77,7 @@ function searchTech(){
 	var params = 'search=' +encodeURIComponent(search); 
 	
 	var message = "Saved successfully!";
-	save(params, "./search/*", message);
+	save(params, "./search/list1", message);
 }
 
 function save(params, uri, message){
@@ -164,9 +123,10 @@ function save(params, uri, message){
 					data+="<th>Trouble Description</th>";
 					data+="<th>Client Name</th>";
 					data+="<th>Ticket Status</th>";
-					data+="<th>Last Updated</th>";
-					data+="<th>Update Time</th>";
-					data+="<th>Update By</th>";
+					data+="<th>Posted On</th>";
+					data+="<th>Updated On</th>";
+					data+="<th>Pedding Days</th>";
+					data+="<th>Updated By</th>";
 					data+="</tr>";
 					data+="</thead>";
 					data+="<tbody>";
@@ -180,6 +140,11 @@ function save(params, uri, message){
 				        data+="<td>"+jsonRecords[i].status+"</td>";
 				        data+="<td>"+jsonRecords[i].postdate+"</td>";
 				        data+="<td>"+jsonRecords[i].updatetime+"</td>";
+				        if(jsonRecords[i].days >= 5){
+				        	data+="<td style='color:red;'>"+jsonRecords[i].days+"Day(s)<i>[Urgent]</i></td>"
+				        }else{
+				        	data+="<td style='color:green;'>"+jsonRecords[i].days+"Day(s)</td>"
+				        }
 				        data+="<td>"+jsonRecords[i].updatedby+"</td>";
 				        
 				        data+="</tr>";

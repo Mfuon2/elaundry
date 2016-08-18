@@ -31,7 +31,7 @@ public class TicketDao extends GenericDao<Ticket, Long> implements TicketDaoI {
 		
 		List<Ticket> ticket = new ArrayList<Ticket>();
 		
-		List<Object []> results = session.createSQLQuery("select id, title,reportedby, descr, status, assign, priority, postdate,updatedby,updatetime,days from ticket")
+		List<Object []> results = session.createSQLQuery("select id, title,reportedby, descr, status, assign, priority, postdate,updatedby,updatetime,days from ticket ")
 				.list();
 		
 		Ticket tickets;

@@ -10,7 +10,11 @@ public interface SearchDaoI {
 	
 	void setEm(EntityManager em);
 	
-	int countCustomerSearch(String confirmationLink, String search);
+	int countTickets(String confirmationLink, String search);
 	List<Ticket> servicesGivenInJson(Ticket services, String confirmationLink, String search);
+
+	int countOpenTickets();
+	
+	int countAllTickets();
 	
 }
