@@ -297,7 +297,8 @@ App.Sys = {
                 	
                 	var table = '<table class= "table table-bordered table-striped table-condensed">'
                 	table += "<div class=\"text-right\">";
-					table += "<a class=\"btn btn-success\"  id=\"" + me.modelId + "-create-add-form\">Add</a>";
+					if (me.modelId != "editUsers")
+						table += "<a class=\"btn btn-success\"  id=\"" + me.modelId + "-create-add-form\">Add</a>";
 					table += "</div>";
 	                table += "<tr>";
 	                
