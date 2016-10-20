@@ -45,9 +45,6 @@ public class SearchDao implements SearchDaoI {
 
 	@SuppressWarnings("unchecked")
 	public int countOpenTickets() {
-		//Query query = em.createQuery("select count(id) from Ticket");
-		//List result = query.getResultList();
-		
 		List <BigInteger> result = em.createNativeQuery("select count(id) from ticket where status ='OPEN'").getResultList();
 		System.out.println("======================================================="+(result.get(0)).intValue());
 		return (result.get(0)).intValue();
@@ -56,9 +53,6 @@ public class SearchDao implements SearchDaoI {
 	
 	@SuppressWarnings("unchecked")
 	public int countAllTickets() {
-		//Query query = em.createQuery("select count(id) from Ticket");
-		//List result = query.getResultList();
-		
 		List <BigInteger> result = em.createNativeQuery("select count(id) from ticket").getResultList();
 		System.out.println("======================================================="+(result.get(0)).intValue());
 		return (result.get(0)).intValue();

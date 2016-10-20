@@ -217,12 +217,12 @@ if (request.getSession().getAttribute("user") != null) {
           <div class="small-box bg-aqua">
             <div class="inner" style="text-align: center;">
               <h3 id="all-tickets"></h3>
-              <p>Tickets</p>
+              <p>Ticket(s)</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a class="small-box-footer" href="#" onclick="ticket.init();ticket.formName();clearDiv()">More info<i class="fa fa-arrow-circle-right"></i></a>
+            <a class="small-box-footer" href="#" onclick="ticket.init();ticket.formName();clearDiv()">View Tickets<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -231,12 +231,12 @@ if (request.getSession().getAttribute("user") != null) {
           <div class="small-box bg-green">
             <div style="text-align: center;" class="inner" >
               <h3 id="open-tickets"><!-- <sup style="font-size: 20px">%</sup> --></h3>
-              <p>Open Tickets</p>
+              <p>Open Ticket(s)</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a class="small-box-footer" href="#">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a class="small-box-footer" href="#" onclick="searchPerson();clearDiv()"> View Open Tickets<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -250,7 +250,7 @@ if (request.getSession().getAttribute("user") != null) {
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a class="small-box-footer" href="#">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a class="small-box-footer" href="#"onclick="editUsers.init();editUsers.formName();clearDiv()"> Activte Users <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -265,7 +265,7 @@ if (request.getSession().getAttribute("user") != null) {
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a class="small-box-footer" href="#">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a class="small-box-footer" href="#" >ytyt<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
