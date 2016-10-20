@@ -18,7 +18,7 @@ import elaundry.search.bean.SearchBeanI;
 public class SearchAction extends HttpServlet{
 	@EJB
 	private SearchBeanI searchBean;
-	int countTickets;
+	int countTickets, countInActive;
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
@@ -31,6 +31,8 @@ public class SearchAction extends HttpServlet{
 			this.list2(request,response);
 		}else if(path.equalsIgnoreCase("allTicktets")){
 			this.allTickets(request,response);
+		}else if(path.equalsIgnoreCase("inActive")) {
+			this.inActive(request, response);
 		}
 				
 	}
@@ -85,6 +87,15 @@ public class SearchAction extends HttpServlet{
 		System.out.println("======================================================"+countTickets);
 		wrter.println(countTickets);
 	
+	}
+	public void inActive(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException{
+
+		PrintWriter wrter = response.getWriter();
+		countInActive = searchBean.countInActive();
+		System.out.println("======================================================"+countInActive);
+		wrter.println(countInActive);
+
 	}
 	
 	

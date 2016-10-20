@@ -16,5 +16,6 @@ public interface SearchDaoI {
 	int countOpenTickets();
 	
 	int countAllTickets();
-	
+
+    int countInActive();
 }

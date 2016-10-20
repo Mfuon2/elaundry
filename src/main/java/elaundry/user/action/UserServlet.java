@@ -72,6 +72,7 @@ public class UserServlet extends HttpServlet {
 		user.setFullname(request.getParameter("fullname"));
 		user.setUsername(request.getParameter("username"));
 		user.setEmail(request.getParameter("email"));
+		user.setUsertype("InActive");
 		String password = request.getParameter("password");
 		//user.setPassword(password);
 		if(password.length() > 20){

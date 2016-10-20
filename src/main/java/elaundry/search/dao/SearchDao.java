@@ -65,5 +65,11 @@ public class SearchDao implements SearchDaoI {
 		
 	}
 
+	public int countInActive() {
+		List <BigInteger> result = em.createNativeQuery("select count(id) from users where usertype='InActive'").getResultList();
+		System.out.println("======================================================="+(result.get(0)).intValue());
+		return (result.get(0)).intValue();
+	}
+
 
 }

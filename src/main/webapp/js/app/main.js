@@ -52,3 +52,20 @@ function contactUs(){
     ajax.open("GET", "./search/allTicktets", true);
     ajax.send();
 })();
+
+(function(){
+    var ajax = new XMLHttpRequest();
+
+    ajax.onreadystatechange = function(){
+
+        if(ajax.readyState == 4){
+            if(ajax.status == 200){
+                document.getElementById('inactive-users').innerHTML = ajax.responseText;
+                console.log(ajax.responseText);
+            }
+        }
+    }
+
+    ajax.open("GET", "./search/inActive", true);
+    ajax.send();
+})();

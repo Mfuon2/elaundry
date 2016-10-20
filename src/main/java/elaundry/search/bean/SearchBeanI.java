@@ -6,4 +6,5 @@ public interface SearchBeanI {
 	String servicesGivenInJson(String confirmationLink, String search);
 	int countOpenTickets();
 	int countAllTickets();
+    int countInActive();
 }

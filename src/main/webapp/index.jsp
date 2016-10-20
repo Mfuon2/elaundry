@@ -243,10 +243,9 @@ if (request.getSession().getAttribute("user") != null) {
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>User Registrations</p>
+            <div style="text-align: center;" class="inner">
+              <h3 id="inactive-users"><!-- <sup style="font-size: 20px">%</sup> --></h3>
+              <p>In-Active User(s)</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>

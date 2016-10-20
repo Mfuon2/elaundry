@@ -58,4 +58,9 @@ public class SearchBean implements SearchBeanI{
 	public int countAllTickets(){
 		return searchDao.countAllTickets();
 	}
+
+	public int countInActive() {
+
+		return searchDao.countInActive();
+	}
 }
