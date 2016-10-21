@@ -35,7 +35,6 @@ public class SearchDao implements SearchDaoI {
 		String code = "TCN";
 		String assign = code+search;
 		String status = "OPEN";
-		
 		Query query = em.createQuery("from Ticket where assign=:assign AND status=:status ORDER BY days DESC");
 		query.setParameter("assign", assign);
 		query.setParameter("status",status);

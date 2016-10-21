@@ -31,7 +31,7 @@
             <label for="tab1">Register </label>
             <div id="tab-content1" class="tab-content">
              
-              <form id="register-form" method="post" name="register" action="">
+              <form id="register-form" method="post" name="register" autocomplete="off" action="">
               
                 <span class="tabaddon"><i class="fa fa-user fa-2x"></i></span>
                 <input class="field" id="fullname" value="" name="fullname" required type="text" placeholder="Full Name" />
@@ -63,7 +63,7 @@
           
           <!-- Login -->
       	  <li>
-            <input type="radio" name="tabs blue" id="tab2" />
+            <input type="radio" name="tabs blue" id="tab2" autocomplete="off" />
             <label for="tab2">Login</label>
             <div id="tab-content2" class="tab-content">
             
@@ -77,9 +77,9 @@
                 <input class="field" id="password" value=""  name="password" required type="password" placeholder="Password"/>
                 <select name="usertype" id="usertype">
 					<option value="">--Select User Type--</option>
-					<option value="support">Customer Support</option>
+					<option value="admin">Administrator</option>
 					<option value="tech">Technician</option>
-					<option value="client">Client</option>
+					<option value="client">Staff</option>
 				</select> 
                 <div class="btn">
                 <!-- <input class="field" id="usertype" value=""  name="usertype" required type="text" placeholder="Usertype"/>  -->

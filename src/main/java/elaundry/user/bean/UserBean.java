@@ -60,7 +60,6 @@ public class UserBean implements UserBeanI {
 		return userDao.list(new User());
 	}
 	public String listInJson(){
-		Map<String, Object> filter = new HashMap<String, Object>();
 		List<User> users = userDao.sqlList();
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
