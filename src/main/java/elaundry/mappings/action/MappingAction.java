@@ -1,6 +1,6 @@
 package elaundry.mappings.action;
 
-import elaundry.mappings.bean.MappingsBeanI;
+import elaundry.user.bean.UserBeanI;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ import java.io.PrintWriter;
 public class MappingAction extends HttpServlet {
 
     @EJB
-    private MappingsBeanI mappingsBean;
+    private UserBeanI userBean;
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -33,7 +33,7 @@ public class MappingAction extends HttpServlet {
         String [] pathCmp = request.getRequestURI().split("/");
         String path = pathCmp[pathCmp.length-1];
 
-        if(path.equalsIgnoreCase("client")){
+        if(path.equalsIgnoreCase("users")){
             this.listInactive(request, resp);
         }
     }
@@ -41,6 +41,6 @@ public class MappingAction extends HttpServlet {
     private void listInactive(HttpServletRequest request, HttpServletResponse resp)
     throws ServletException, IOException{
         PrintWriter print = resp.getWriter();
-        print.println(mappingsBean.listUsers());
+        print.println(userBean.listInJson());
     }
 }

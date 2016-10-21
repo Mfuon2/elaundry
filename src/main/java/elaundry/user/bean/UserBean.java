@@ -30,7 +30,6 @@ public class UserBean implements UserBeanI {
 	public void create(User user){
 		if(user == null)
 			return;
-		
 		userDao.save(user);
 	}
 	
