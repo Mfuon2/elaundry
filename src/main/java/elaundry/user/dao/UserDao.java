@@ -42,7 +42,6 @@ public class UserDao extends GenericDao <User, Long> implements UserDaoI{
 		List<User> users = new ArrayList<User>();
 		List<Object []> results = session.createSQLQuery("select id, fullname, username,password, email, usertype from users")
 				.list();
-		
 		User user;
 		for(Object [] result : results){
 			user = new User();

@@ -30,6 +30,7 @@ public class UserBean implements UserBeanI {
 	public void create(User user){
 		if(user == null)
 			return;
+		System.out.println("Saving the user ===========================================================   ============ ");
 		userDao.save(user);
 	}
 	
@@ -39,16 +40,13 @@ public class UserBean implements UserBeanI {
 		
 		if(Authentication){
 		return true;
-		
 		}else {
 			return false;
-			
 		}
 	}
 	
 	public String load(Long id){
 		User users = userDao.findById(id);
-		
 		if(users != null)
 			return users.getJson();
 		else
@@ -62,7 +60,6 @@ public class UserBean implements UserBeanI {
 		List<User> users = userDao.sqlList();
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
-		
 		int count = userDao.countAll();
 		for(User user : users){
 			sb.append(user.getJson());
@@ -79,7 +76,6 @@ public class UserBean implements UserBeanI {
 	}
 	public boolean delete(Long id) {
 		userDao.delete(id);
-		
 		return true;
 	}	
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.logging.Logger;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -16,10 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 import elaundry.user.bean.UserBeanI;
 import elaundry.user.model.User;
 
+import static java.util.logging.Logger.*;
+
 @SuppressWarnings("serial")
 @WebServlet("/user/*")
 public class UserServlet extends HttpServlet {
-	
+    private org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(getClass());
 	private User user;
 
 	public User getUser() {
@@ -59,30 +62,28 @@ public class UserServlet extends HttpServlet {
         response.println(userBean.listInJson());
 	}
 
-	@SuppressWarnings("unused")
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
 		
 		User user = new User();
-		if(request.getParameter("id") != null 
-				&& !request.getParameter("id").equals("undefined"))
+		if(request.getParameter("id") != null && !request.getParameter("id").equals("undefined"))
 			user.setId(Long.parseLong(request.getParameter("id")));
-		
 		user.setFullname(request.getParameter("fullname"));
 		user.setUsername(request.getParameter("username"));
 		user.setEmail(request.getParameter("email"));
 		String password = request.getParameter("password");
 		//user.setPassword(password);
+        log.info(" ======================== " + user.getFullname());
+        log.info(" ======================== " + user.getUsername());
+        log.info(" ======================== " + user.getEmail());
+        log.info(" ======================== " + user.getUsertype());
+        log.info(" ======================== " + user.getPassword());
 		if(password.length() > 20){
-			
 			user.setPassword(password);
-			
 		}else{
-			
 			MessageDigest md;
 			try {
-				
 				md = MessageDigest.getInstance("SHA-256");
 				String text = password;
 				md.update(text.getBytes("UTF-8"));
@@ -106,7 +107,6 @@ public class UserServlet extends HttpServlet {
 		RequestDispatcher rq = request.getRequestDispatcher("login.jsp");
 		try {
 			userBean.create(user);
-			
 		} catch (Exception e) {
 			writer.println("<pre>Some Errror "+ e.getMessage()+"<pre>");
 		}			

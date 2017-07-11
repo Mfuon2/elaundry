@@ -1,0 +1,31 @@
+<web-app metadata-complete="false" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>E-Laundry - Laundry Application</display-name>
+	
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+	  <servlet-name>Resteasy</servlet-name>
+	  <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>Resteasy</servlet-name>
+	  <url-pattern>/api/*</url-pattern>
+	</servlet-mapping>
+    <context-param>
+      <param-name>resteasy.scan</param-name>
+      <param-value>true</param-value>
+    </context-param>
+	<context-param>
+	  <param-name>resteasy.servlet.mapping.prefix</param-name>
+	  <param-value>/api</param-value>
+	</context-param>
+	<listener>
+	  <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+	</listener>
+
+</web-app>

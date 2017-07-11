@@ -30,16 +30,15 @@ public class MappingAction extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse resp)
             throws ServletException, IOException {
-        String [] pathCmp = request.getRequestURI().split("/");
-        String path = pathCmp[pathCmp.length-1];
-
-        if(path.equalsIgnoreCase("users")){
+        String[] pathCmp = request.getRequestURI().split("/");
+        String path = pathCmp[pathCmp.length - 1];
+        if (path.equalsIgnoreCase("users")) {
             this.listInactive(request, resp);
         }
     }
 
     private void listInactive(HttpServletRequest request, HttpServletResponse resp)
-    throws ServletException, IOException{
+            throws ServletException, IOException {
         PrintWriter print = resp.getWriter();
         print.println(userBean.listInJson());
     }
